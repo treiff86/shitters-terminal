@@ -1,8 +1,8 @@
-🧻 Shitters Terminal (USDSHT)
+🧻 Shitcore Terminal (USDSHT)
 
 The first Layer 1 blockchain built exclusively for Meme 3.0, toxic speedruns, and absolute, pristine, developer-coordinated exits.
 
-Welcome to the Shitters Terminal (USDSHT)—the ultimate, hyper-interactive, completely self-contained browser playground that simulates the pure, unadulterated madness of the modern decentralized web.
+Welcome to the Shitcore Terminal (USDSHT)—the ultimate, hyper-interactive, completely self-contained browser playground that simulates the pure, unadulterated madness of the modern decentralized web.
 
 Why get actually rugged on-chain when you can simulate the exact feeling of losing your life savings to a pre-teen developer, accompanied by gorgeous canvas-based charts, procedural Twitter shills, and rich retro synthesizer audio engines?
 
@@ -12,13 +12,13 @@ This terminal is heavily inspired by the UI structure found in image_20abe5.png,
 
 1. 📖 The Lore / Info Tab (Rebranding of image_20abe5.png)
 
-Explore the deep inner workings of the Proof-of-Poop (PoP) consensus mechanism. Read about the revolutionary Dump-to-Earn micro-economy where validator-coordinated exit events, catastrophic toilet-drains, and retail frontrunning are celebrated as active economic drivers.
+Explore the deep inner workings of the Proof-of-Poop (PoP) consensus mechanism on Shitcore. Read about the revolutionary Dump-to-Earn micro-economy where validator-coordinated exit events, catastrophic toilet-drains, and retail frontrunning are celebrated as active economic drivers.
 
 2. 📈 Live Markets & Dynamic Orderbook
 
 Real-time Charting Canvas: Watch live candles generate on the fly. Switch intervals ($1\text{m}$, $5\text{m}$, $1\text{H}$) or take matters into your own hands using the manual PUMP IT and DUMP IT whale market overrides.
 
-Dynamic Orderbook: Bids and asks actively fluctuate, showing order placements from Pre-Teen Profit Snipers, Solana Frontrun MEVs, and Gullible Discord Moderators.
+Dynamic Orderbook: Bids and asks actively fluctuate, showing order placements from Pre-Teen Profit Snipers, Solana Frontrun MEVs, and Gullible Discord Moderators on the Shitcore L1.
 
 Mock Exchange Terminal: Swap your mock USDT for USDSHT. Try to click sell—our anti-paper-hand bytecode lock will gracefully fail your transaction to keep you holding!
 
@@ -40,7 +40,7 @@ Become the master deployer!
 
 Configure your token's Name, Ticker, Presale Target, and Rug Exit Vector (Standard LP Yank, Honeypot Lock, Slow Drip Dump, or 99.9% Tax Squeeze).
 
-Execute targeted Marketing Campaigns: Buy TikTok Shitters, Airdrop to Vitalik's Burner, publish an AI-generated whitepaper, or Host a Toilet Space. Each action feeds custom hype into a dynamic charting engine, swelling your capital pool.
+Execute targeted Marketing Campaigns: Buy TikTok Shitcore shills, Airdrop to Vitalik's Burner, publish an AI-generated whitepaper, or Host a Toilet Space. Each action feeds custom hype into a dynamic charting engine, swelling your capital pool.
 
 Monitor a context-aware Degen Chat Feed that changes behavior based on your token's age, and click the giant red PULL LIQUIDITY button to trigger a multi-layered synthesized cash-flushing noise!
 
@@ -63,20 +63,6 @@ Upload index.html: Upload the index.html file directly to the root folder of you
 Turn on Pages: Go to Settings -> Pages. Under Build and deployment, select your main (or master) branch as the source and click Save.
 
 Share Your Link: In about 60 seconds, GitHub will give you a live link like https://yourusername.github.io/your-repo-name/. Send it to your friends, family, and favorite Telegram group chats!
-
-🎵 Retro Synthesizer Engine
-
-The terminal features a custom HTML5 Audio Context synth board. Every action has an audio signature:
-
-Click: A sharp, high-frequency pitch ramp.
-
-Buy: A cheerful ascending major-chord arpeggio.
-
-Siren: An aggressive sawtooth warning glide.
-
-Lambo: A roaring, multi-frequency mock combustion engine.
-
-Rug: A heavy, low-pass filtered brown noise burst simulating an explosive toilet flushing your cash away forever.
 
 ⚠️ Sarcastic Risk Disclaimer
 
