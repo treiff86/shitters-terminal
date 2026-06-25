@@ -3,59 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shitters (USDSHT) - The Ultimate L1 for absolute rugs</title>
+    <title>Shitters (USDSHT) - The Ultimate L1 for Absolute Rugs</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter for slick UI look -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for exact exchange icons -->
+    <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #080A0F;
+            background-color: #05070B;
             color: #EAECEF;
         }
         .mono {
             font-family: 'JetBrains Mono', monospace;
         }
-        /* Hide scrollbars but keep functionality */
+        /* Custom scrollbars */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #0B0E11;
+            background: #080B11;
         }
         ::-webkit-scrollbar-thumb {
-            background: #2B3139;
-            border-radius: 3px;
+            background: #1C212E;
+            border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #474F59;
+            background: #3B82F6;
         }
-        /* Custom animations for tickers */
+        /* Flashing glow animations */
         @keyframes flash-green {
-            0% { background-color: rgba(14, 203, 129, 0.4); }
-            100% { background-color: transparent; }
+            0% { background-color: rgba(16, 185, 129, 0.4); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+            100% { background-color: transparent; box-shadow: none; }
         }
         @keyframes flash-red {
-            0% { background-color: rgba(246, 70, 93, 0.4); }
-            100% { background-color: transparent; }
+            0% { background-color: rgba(244, 63, 94, 0.4); box-shadow: 0 0 15px rgba(244, 63, 94, 0.4); }
+            100% { background-color: transparent; box-shadow: none; }
         }
         .flash-up {
-            animation: flash-green 0.8s ease-out;
+            animation: flash-green 0.7s ease-out;
         }
         .flash-down {
-            animation: flash-red 0.8s ease-out;
+            animation: flash-red 0.7s ease-out;
+        }
+        .neon-glow-red {
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.2);
+            border-color: rgba(244, 63, 94, 0.4);
+        }
+        .neon-glow-amber {
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+        .neon-glow-green {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.4);
         }
     </style>
 </head>
 <body class="overflow-x-hidden min-h-screen flex flex-col justify-between">
 
     <script>
-        // Synthesizer sounds for immersive trading & rugging feedback
+        // Retro Synthesizer Audio Engine
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         
         function playSound(type) {
@@ -74,44 +86,88 @@
                 if (type === 'click') {
                     osc.type = 'sine';
                     osc.frequency.setValueAtTime(600, now);
-                    osc.frequency.exponentialRampToValueAtTime(1200, now + 0.05);
+                    osc.frequency.exponentialRampToValueAtTime(1200, now + 0.04);
                     gain.gain.setValueAtTime(0.05, now);
-                    gain.gain.linearRampToValueAtTime(0, now + 0.05);
+                    gain.gain.linearRampToValueAtTime(0, now + 0.04);
                     osc.start(now);
-                    osc.stop(now + 0.05);
+                    osc.stop(now + 0.04);
                 } else if (type === 'buy') {
                     osc.type = 'triangle';
                     osc.frequency.setValueAtTime(400, now);
-                    osc.frequency.setValueAtTime(800, now + 0.08);
-                    osc.frequency.setValueAtTime(1200, now + 0.16);
+                    osc.frequency.setValueAtTime(800, now + 0.05);
+                    osc.frequency.setValueAtTime(1200, now + 0.1);
                     gain.gain.setValueAtTime(0.08, now);
-                    gain.gain.linearRampToValueAtTime(0, now + 0.3);
+                    gain.gain.linearRampToValueAtTime(0, now + 0.2);
                     osc.start(now);
-                    osc.stop(now + 0.3);
-                } else if (type === 'rug') {
-                    // Create massive flushing explosion sound
+                    osc.stop(now + 0.2);
+                } else if (type === 'stake') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(250, now);
+                    osc.frequency.exponentialRampToValueAtTime(900, now + 0.35);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.linearRampToValueAtTime(0, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'alarm') {
                     osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(400, now);
-                    osc.frequency.exponentialRampToValueAtTime(40, now + 1.2);
+                    osc.frequency.setValueAtTime(900, now);
+                    osc.frequency.linearRampToValueAtTime(450, now + 0.2);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.linearRampToValueAtTime(0, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                } else if (type === 'lambo') {
+                    // Revving engine sound simulation
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(120, now);
+                    osc.frequency.linearRampToValueAtTime(380, now + 0.3);
+                    osc.frequency.linearRampToValueAtTime(220, now + 0.6);
+                    osc.frequency.linearRampToValueAtTime(600, now + 1.1);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.exponentialRampToValueAtTime(0.005, now + 1.2);
+                    osc.start(now);
+                    osc.stop(now + 1.2);
+                } else if (type === 'liquidated') {
+                    // Dramatic laser crash
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(800, now);
+                    osc.frequency.exponentialRampToValueAtTime(40, now + 0.8);
                     
-                    // Filter for noise/muffle
                     const filter = audioCtx.createBiquadFilter();
-                    filter.type = 'lowpass';
-                    filter.frequency.setValueAtTime(1000, now);
-                    filter.frequency.exponentialRampToValueAtTime(100, now + 1.2);
+                    filter.type = 'peaking';
+                    filter.frequency.value = 300;
                     
                     osc.disconnect(gain);
                     osc.connect(filter);
                     filter.connect(gain);
                     
-                    gain.gain.setValueAtTime(0.3, now);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 1.5);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.linearRampToValueAtTime(0, now + 0.8);
+                    osc.start(now);
+                    osc.stop(now + 0.8);
+                } else if (type === 'rug') {
+                    // Explosive multi-layered flush noise
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(250, now);
+                    osc.frequency.exponentialRampToValueAtTime(25, now + 1.8);
+                    
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(700, now);
+                    filter.frequency.exponentialRampToValueAtTime(60, now + 1.8);
+                    
+                    osc.disconnect(gain);
+                    osc.connect(filter);
+                    filter.connect(gain);
+                    
+                    gain.gain.setValueAtTime(0.28, now);
+                    gain.gain.exponentialRampToValueAtTime(0.002, now + 1.9);
                     
                     osc.start(now);
-                    osc.stop(now + 1.5);
+                    osc.stop(now + 1.9);
                     
-                    // Noise layer for flush/splash
-                    const bufferSize = audioCtx.sampleRate * 1.5;
+                    // White noise buffer
+                    const bufferSize = audioCtx.sampleRate * 2.0;
                     const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
                     const data = buffer.getChannelData(0);
                     for (let i = 0; i < bufferSize; i++) {
@@ -122,117 +178,129 @@
                     
                     const noiseFilter = audioCtx.createBiquadFilter();
                     noiseFilter.type = 'bandpass';
-                    noiseFilter.frequency.setValueAtTime(300, now);
-                    noiseFilter.frequency.exponentialRampToValueAtTime(80, now + 1.5);
+                    noiseFilter.frequency.setValueAtTime(500, now);
+                    noiseFilter.frequency.exponentialRampToValueAtTime(50, now + 2.0);
                     
                     const noiseGain = audioCtx.createGain();
-                    noiseGain.gain.setValueAtTime(0.2, now);
-                    noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 1.5);
+                    noiseGain.gain.setValueAtTime(0.28, now);
+                    noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
                     
                     noise.connect(noiseFilter);
                     noiseFilter.connect(noiseGain);
                     noiseGain.connect(audioCtx.destination);
                     
                     noise.start(now);
-                    noise.stop(now + 1.5);
+                    noise.stop(now + 2.0);
                 } else if (type === 'launch') {
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(100, now);
-                    osc.frequency.exponentialRampToValueAtTime(1500, now + 0.6);
-                    gain.gain.setValueAtTime(0.1, now);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(120, now);
+                    osc.frequency.exponentialRampToValueAtTime(1500, now + 0.95);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.95);
                     osc.start(now);
-                    osc.stop(now + 0.6);
+                    osc.stop(now + 0.95);
                 }
             } catch (e) {
-                console.log("Audio contexts blocked or not supported yet:", e);
+                console.warn("Audio Context blocked or unsupported:", e);
             }
         }
     </script>
 
-    <header class="bg-[#0B0E11] border-b border-[#1E2329] px-4 py-3 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <!-- Left Side: Back Arrow, Ticker details matching image_20abe5.png -->
+    <script>
+        let activeTab = 'markets';
+        let mainPrice = 0.00004206;
+        let mainPriceChange = -99.98;
+        let blockNumber = 942012;
+        let mockWalletBalance = 1420.69;
+        let userStakedFunds = 0;
+        let profitTracker = 0;
+    </script>
+
+    <header class="bg-[#090C12] border-b border-[#1A2232] px-4 py-3 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Back Arrow, Symbol & Live Ticker matching image_20abe5.png details -->
             <div class="flex items-center space-x-3">
-                <button onclick="playSound('click')" class="text-gray-400 hover:text-white transition-colors duration-200">
+                <button onclick="playSound('click')" class="text-gray-400 hover:text-white transition">
                     <i class="fa-solid fa-arrow-left text-xl"></i>
                 </button>
                 <div>
-                    <div class="flex items-center space-x-1">
-                        <span class="text-white font-bold text-base md:text-lg uppercase flex items-center gap-1.5">
-                            USDSHT <span class="text-xs bg-[#2B3139] text-gray-300 px-1 py-0.5 rounded font-normal normal-case">Perpetual ▾</span>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-white font-extrabold text-base md:text-lg uppercase flex items-center gap-1.5">
+                            USDSHT <span class="text-[10px] bg-[#1B2130] text-amber-500 px-1.5 py-0.5 rounded font-bold normal-case">Layer 1 Perpetual ▾</span>
                         </span>
                     </div>
-                    <!-- Live Ticker matching the style (Price Red, Drop Red from image) -->
-                    <div class="flex items-center space-x-2 text-xs md:text-sm">
-                        <span id="headerPrice" class="text-[#F6465D] font-bold tracking-tight">0.00004206</span>
-                        <span id="headerPercent" class="text-[#F6465D] font-medium">-99.98%</span>
+                    <div class="flex items-center space-x-2 text-xs md:text-sm mt-0.5">
+                        <span id="headerPrice" class="text-rose-500 font-bold tracking-tight">0.00004206</span>
+                        <span id="headerPercent" class="text-rose-500 font-medium">-99.98%</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Side Utility Icons (Telegram, Alerts/Bell, Stars) -->
+            <!-- Social / Action Icons -->
             <div class="flex items-center space-x-4 text-gray-400">
-                <a href="#" onclick="alert('Join the Official Shitters Tele-Trash group for toxic alpha, coordinated rugs, and developer crying fits!'); return false;" class="hover:text-white transition-colors">
+                <span class="text-xs bg-[#121926] border border-[#1E293B] text-green-400 font-mono px-2.5 py-1 rounded hidden md:inline-block">
+                    Wallet: $<span id="displayWalletBal">1,420.69</span> USDT
+                </span>
+                <a href="#" onclick="showGlobalAlert('Join the Shitters Matrix Group. We boast 15,000 highly toxic speedrunners crying over spilled liquidity pools.'); return false;" class="hover:text-blue-400 transition">
                     <i class="fa-solid fa-paper-plane text-lg"></i>
                 </a>
-                <button onclick="alert('RUG ALERTS: Enabled by default. Warning: This terminal will sound alarms at every rug pull (so, constantly).'); playSound('click');" class="hover:text-white transition-colors relative">
+                <button onclick="playSound('alarm'); showGlobalAlert('RUG INTRUSION: Covert bytecode extraction vector triggered. 100% of staking nodes are fully exposed to toilet drains!');" class="hover:text-red-400 transition relative">
                     <i class="fa-solid fa-bell text-lg"></i>
-                    <span class="absolute -top-1 -right-1 bg-red-500 w-2 h-2 rounded-full"></span>
+                    <span class="absolute top-0 right-0 bg-red-500 w-2 h-2 rounded-full animate-ping"></span>
                 </button>
-                <button id="favoriteBtn" onclick="this.classList.toggle('text-yellow-400'); playSound('click');" class="hover:text-yellow-400 transition-colors">
+                <button id="favoriteBtn" onclick="this.classList.toggle('text-yellow-400'); playSound('click');" class="hover:text-yellow-400 transition">
                     <i class="fa-solid fa-star text-lg"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <nav class="bg-[#0B0E11] border-b border-[#1E2329]">
-        <div class="max-w-6xl mx-auto px-4 flex space-x-6 overflow-x-auto">
-            <!-- Market Terminal Tab -->
-            <button onclick="switchTab('markets')" id="tab-markets" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap transition-all duration-150">
+    <nav class="bg-[#070A0F] border-b border-[#121721] sticky top-[62px] z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 flex space-x-5 overflow-x-auto">
+            <!-- Markets Tab (Default active) -->
+            <button onclick="switchTab('markets')" id="tab-markets" class="py-3 text-sm font-medium border-b-2 border-blue-500 text-white whitespace-nowrap transition-all">
                 Markets
             </button>
-            <!-- AI Auditor Tab -->
-            <button onclick="switchTab('ai')" id="tab-ai" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap flex items-center gap-1 transition-all duration-150">
-                AI Analysis <span class="bg-[#1E2329] text-[10px] text-blue-400 px-1 py-0.2 rounded font-bold">AI</span>
+            <!-- AI Auditor -->
+            <button onclick="switchTab('ai')" id="tab-ai" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap flex items-center gap-1.5 transition-all">
+                AI Solidity Auditor <span class="bg-[#1C212E] text-[9px] text-blue-400 px-1.5 py-0.5 rounded font-bold">GPT V2</span>
             </button>
-            <!-- Info Tab (Active default, matching screenshot structure) -->
-            <button onclick="switchTab('info')" id="tab-info" class="py-3 text-sm font-medium border-b-2 border-blue-500 text-white whitespace-nowrap transition-all duration-150">
-                Info
+            <!-- Rug Deployer Mini-Game -->
+            <button onclick="switchTab('deployer')" id="tab-deployer" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap flex items-center gap-1.5 transition-all">
+                Rug Creator <i class="fa-solid fa-rocket text-xs text-amber-500 animate-pulse"></i>
             </button>
-            <!-- Rug Deployer Interactive Mini-game -->
-            <button onclick="switchTab('deployer')" id="tab-deployer" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap flex items-center gap-1 transition-all duration-150">
-                Rug Launchpad <i class="fa-solid fa-toilet text-xs text-amber-500"></i>
+            <!-- Ponzi Yield Farm -->
+            <button onclick="switchTab('staking')" id="tab-staking" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap flex items-center gap-1.5 transition-all">
+                Ponzi Yield Pools <span class="bg-amber-500/10 text-amber-500 text-[9px] px-1.5 py-0.5 rounded font-bold">Leveraged</span>
+            </button>
+            <!-- Info (MemeCore Rebrand) -->
+            <button onclick="switchTab('info')" id="tab-info" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap transition-all">
+                Lore / Info
             </button>
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-4 py-6 flex-grow w-full">
+    <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full">
 
-        <!-- ================= INFO TAB CONTENT (EXACT RECREATION & REBRAND OF IMAGE_20ABE5) ================= -->
-        <section id="content-info" class="space-y-6">
-            <div class="bg-[#12161A] rounded-xl p-6 border border-[#1E2329] shadow-2xl relative overflow-hidden">
-                <!-- Watermark Background -->
-                <div class="absolute right-4 bottom-4 text-[120px] font-black text-[#1E2329]/10 select-none pointer-events-none uppercase">
+        <!-- ================= LORE / INFO TAB (REBRAND OF IMAGE_20ABE5.PNG) ================= -->
+        <section id="content-info" class="hidden space-y-6">
+            <div class="bg-[#0C0F16] rounded-xl p-6 border border-[#1A2232] shadow-2xl relative overflow-hidden">
+                <div class="absolute right-6 bottom-6 text-[150px] font-black text-[#1C212E]/5 select-none pointer-events-none uppercase">
                     RUG
                 </div>
 
-                <!-- Symbol Logo Section matching the "M" layout in image_20abe5.png -->
+                <!-- Symbol Logo Section matching 'M' layout in image_20abe5.png -->
                 <div class="flex items-center space-x-3 mb-6">
-                    <!-- Custom SVG representing S (Toilet Blockchain Node) -->
-                    <div class="bg-gradient-to-tr from-purple-600 to-indigo-800 p-2.5 rounded-lg flex items-center justify-center shadow-md">
-                        <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-2.25-4.5a8.25 8.25 0 11-16.5 0 8.25 8.25 0 0116.5 0z" />
-                        </svg>
+                    <div class="bg-gradient-to-tr from-amber-600 to-amber-950 p-2.5 rounded-lg flex items-center justify-center shadow-lg">
+                        <i class="fa-solid fa-toilet-paper text-white text-xl"></i>
                     </div>
                     <span class="text-white font-extrabold text-2xl tracking-tight">S</span>
                 </div>
 
-                <!-- Deep Lore Text mirroring the wording & layout of MemeCore in image_20abe5.png but for Shitters -->
-                <div class="space-y-4 text-gray-200 text-sm md:text-base leading-relaxed tracking-wide font-light max-w-4xl">
+                <!-- Deep Lore text mirroring layout of image_20abe5.png -->
+                <div class="space-y-4 text-gray-300 text-sm md:text-base leading-relaxed tracking-wide font-light max-w-5xl">
                     <p class="font-bold text-white text-base md:text-lg mb-2">
-                        Shitters is the first Layer 1 blockchain specially built for Meme 3.0 — a new paradigm where meme coins, hyper-shitters, and absolute speedrun rugs evolve from toxic short-term speculation into ultimate community-driven cultural assets, backed by structural, hyper-deflated liquidity black holes.
+                        Shitters is the first Layer 1 blockchain specially built for Meme 3.0 — a new paradigm where meme coins, toxic protocols, and speedrun developer exits evolve from short-term speculation into ultimate community-driven cultural assets, backed by hyper-deflated liquidity black holes.
                     </p>
                     <p>
                         Shitters introduces the <strong class="text-amber-400 font-semibold">"Dump-to-Earn"</strong> economy: a radical layer-1 architecture where catastrophic liquidity drains, validator-coordinated exits, and absolute honeypots are incentivized as active economic drivers. By treating chaos as a feature instead of a bug, our custom PoP (Proof-of-Poop) consensus algorithm converts transaction failures, panic sells, and complete developer abandonment events into yield-bearing opportunities for the survivors.
@@ -242,54 +310,52 @@
                     </p>
                 </div>
 
-                <!-- Extra Layer 1 Shitters Network Statistics Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#1E2329] text-xs md:text-sm">
-                    <div class="bg-[#181D23] p-3.5 rounded-lg">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#1B2130] text-xs md:text-sm">
+                    <div class="bg-[#070A0F] p-4 rounded-lg border border-[#131924]">
                         <p class="text-gray-400 mb-1">Total Value Locked (TVL)</p>
-                        <p class="text-white font-bold text-lg text-amber-500 tracking-tight">$0.69 <span class="text-[10px] text-gray-400 font-normal">consistently drained</span></p>
+                        <p class="text-amber-500 font-extrabold text-lg tracking-tight">$0.69 <span class="text-[10px] text-gray-400 font-normal block">consistently drained</span></p>
                     </div>
-                    <div class="bg-[#181D23] p-3.5 rounded-lg">
+                    <div class="bg-[#070A0F] p-4 rounded-lg border border-[#131924]">
                         <p class="text-gray-400 mb-1">Daily Active Deployments</p>
-                        <p class="text-white font-bold text-lg tracking-tight">4,206 <span class="text-[10px] text-red-400 font-normal">99% rugs</span></p>
+                        <p class="text-red-400 font-extrabold text-lg tracking-tight">14,206 <span class="text-[10px] text-gray-400 font-normal block">99.9% dev departures</span></p>
                     </div>
-                    <div class="bg-[#181D23] p-3.5 rounded-lg">
-                        <p class="text-gray-400 mb-1">Block Time</p>
-                        <p class="text-white font-bold text-lg tracking-tight">0.03s <span class="text-[10px] text-green-400 font-normal">faster than panic</span></p>
+                    <div class="bg-[#070A0F] p-4 rounded-lg border border-[#131924]">
+                        <p class="text-gray-400 mb-1">Block Generation Speed</p>
+                        <p class="text-green-400 font-extrabold text-lg tracking-tight">0.02s <span class="text-[10px] text-gray-400 font-normal block">faster than human dread</span></p>
                     </div>
-                    <div class="bg-[#181D23] p-3.5 rounded-lg">
+                    <div class="bg-[#070A0F] p-4 rounded-lg border border-[#131924]">
                         <p class="text-gray-400 mb-1">Consensus Model</p>
-                        <p class="text-white font-bold text-lg tracking-tight text-indigo-400">Proof-of-Poop (PoP)</p>
+                        <p class="text-blue-400 font-extrabold text-lg tracking-tight">Proof-of-Poop (PoP)</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Disclaimer warning standard in crypto interfaces but customized for the hilarity -->
-            <div class="bg-[#1F1414] border border-[#3E1F1F] rounded-xl p-5 flex items-start space-x-3">
-                <i class="fa-solid fa-triangle-exclamation text-red-500 text-lg mt-0.5"></i>
+            <div class="bg-[#1C0D0D] border border-[#441818] rounded-xl p-5 flex items-start space-x-3 shadow-md">
+                <i class="fa-solid fa-triangle-exclamation text-rose-500 text-lg mt-0.5"></i>
                 <div>
-                    <h4 class="text-red-400 font-bold text-sm">Official Toxic Waste Risk Warning</h4>
-                    <p class="text-gray-300 text-xs mt-1 leading-normal">
-                        Trading USDSHT or deploying meme contracts on the Shitters Layer 1 is highly unsafe. Your funds will almost certainly be locked, drained, frontrun by MEV toilet-bots, or rugged directly by pre-teen developers with default avatar profiles. Play at your own discretion, and remember to wash your hands after interacting with this network.
+                    <h4 class="text-rose-400 font-bold text-sm">Official Toxic Waste Risk Warning</h4>
+                    <p class="text-gray-300 text-xs mt-1 leading-normal font-light">
+                        Trading USDSHT or deploying meme contracts on the Shitters Layer 1 is highly unsafe. Your funds will almost certainly be locked, drained, frontrun by MEV toilet-bots, or rugged directly by pre-teen developers with default avatar profiles. Play at your own discretion.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- ================= MARKETS TAB (INTERACTIVE CHART & EXCHANGE INTERFACE) ================= -->
-        <section id="content-markets" class="hidden space-y-6">
+        <!-- ================= MARKETS TAB (INTERACTIVE CHART & EXCHANGE) ================= -->
+        <section id="content-markets" class="space-y-6">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- Live Trading Chart Panel -->
-                <div class="lg:col-span-2 bg-[#12161A] border border-[#1E2329] rounded-xl p-4 flex flex-col justify-between">
+                <div class="lg:col-span-2 bg-[#0C0F16] border border-[#1A2232] rounded-xl p-5 flex flex-col justify-between shadow-lg">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
                             <div class="flex items-center space-x-3">
-                                <span class="font-bold text-lg">USDSHT / USDT Live Chart</span>
-                                <span class="bg-red-500/10 text-red-400 px-2 py-0.5 rounded text-xs animate-pulse font-semibold">LIVE RUGSTREAM</span>
+                                <span class="font-extrabold text-lg text-white">USDSHT / USDT Perpetual Chart</span>
+                                <span class="bg-red-500/10 text-rose-400 px-2 py-0.5 rounded text-xs animate-pulse font-semibold">LIVE DRAIN</span>
                             </div>
-                            <div class="flex space-x-2">
+                            <div class="flex items-center space-x-1.5 flex-wrap">
                                 <button onclick="setChartInterval('1m')" class="px-2 py-1 bg-blue-500 text-white rounded text-xs font-semibold">1m</button>
-                                <button onclick="setChartInterval('5m')" class="px-2 py-1 bg-[#1E2329] hover:bg-gray-800 rounded text-xs">5m</button>
-                                <button onclick="setChartInterval('1h')" class="px-2 py-1 bg-[#1E2329] hover:bg-gray-800 rounded text-xs">1H</button>
+                                <button onclick="setChartInterval('5m')" class="px-2 py-1 bg-[#1C212E] hover:bg-[#252E3E] text-gray-300 rounded text-xs">5m</button>
+                                <button onclick="setChartInterval('1h')" class="px-2 py-1 bg-[#1C212E] hover:bg-[#252E3E] text-gray-300 rounded text-xs">1H</button>
                                 <button onclick="forcePump()" class="px-2.5 py-1 bg-green-500 hover:bg-green-600 text-black font-bold rounded text-xs shadow-lg flex items-center gap-1">
                                     <i class="fa-solid fa-arrow-trend-up"></i> PUMP IT
                                 </button>
@@ -300,90 +366,54 @@
                         </div>
 
                         <!-- HTML5 Trading Canvas -->
-                        <div class="relative w-full h-[320px] bg-[#080A0F] rounded-lg border border-[#1E2329] overflow-hidden">
+                        <div class="relative w-full h-[320px] bg-[#040609] rounded-lg border border-[#1A2232] overflow-hidden">
                             <canvas id="tradingCanvas" class="w-full h-full block"></canvas>
                         </div>
                     </div>
 
-                    <!-- Quick Ticker Stats Bar -->
-                    <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-[#1E2329] text-center">
+                    <!-- Quick Ticker Stats -->
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-[#1A2232] text-center">
                         <div>
                             <span class="text-[10px] text-gray-400 block">24h High</span>
                             <span id="statHigh" class="text-green-400 text-xs font-semibold">0.02450000</span>
                         </div>
                         <div>
                             <span class="text-[10px] text-gray-400 block">24h Low</span>
-                            <span id="statLow" class="text-red-400 text-xs font-semibold">0.00000012</span>
+                            <span id="statLow" class="text-rose-400 text-xs font-semibold">0.00000012</span>
                         </div>
                         <div>
                             <span class="text-[10px] text-gray-400 block">24h Vol (USDSHT)</span>
-                            <span class="text-gray-200 text-xs font-semibold">9.81B</span>
+                            <span id="statVol" class="text-gray-200 text-xs font-semibold">9.81B</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Order Book & Trade Actions panel -->
-                <div class="bg-[#12161A] border border-[#1E2329] rounded-xl p-4 flex flex-col justify-between">
+                <!-- Order Book & Trade Panel -->
+                <div class="bg-[#0C0F16] border border-[#1A2232] rounded-xl p-5 flex flex-col justify-between shadow-lg">
                     <div>
-                        <div class="border-b border-[#1E2329] pb-3 mb-3">
-                            <h3 class="font-bold text-sm text-gray-200">Shitters L1 Orderbook</h3>
+                        <div class="border-b border-[#1A2232] pb-3 mb-3 flex items-center justify-between">
+                            <h3 class="font-bold text-sm text-gray-200">Shitters L1 Dynamic Orderbook</h3>
+                            <span class="text-[10px] bg-amber-500/10 text-amber-500 px-1.5 py-0.5 rounded font-mono">Live Swaps</span>
                         </div>
 
-                        <!-- Order book visualization (asks/bids) -->
-                        <div class="space-y-1 text-xs mono">
-                            <!-- Sells (Asks) - Red -->
-                            <div class="space-y-0.5">
-                                <div class="flex justify-between text-red-400/80 hover:bg-red-500/5 px-1 py-0.5 rounded transition">
-                                    <span>0.00009841</span>
-                                    <span>120,400</span>
-                                    <span class="text-gray-500">Dev Exit Order #1</span>
-                                </div>
-                                <div class="flex justify-between text-red-400/80 hover:bg-red-500/5 px-1 py-0.5 rounded transition">
-                                    <span>0.00008511</span>
-                                    <span>450,000</span>
-                                    <span class="text-gray-500">Influencer Dump</span>
-                                </div>
-                                <div class="flex justify-between text-red-500 hover:bg-red-500/10 px-1 py-0.5 font-bold rounded transition">
-                                    <span>0.00007990</span>
-                                    <span>8,990,000</span>
-                                    <span class="text-gray-400">🚨 RUG TRAP</span>
-                                </div>
-                            </div>
-
-                            <!-- Spread middle line -->
-                            <div class="border-y border-[#1E2329] py-1 text-center my-2 bg-[#1A1F26] rounded">
+                        <!-- Order book elements populated dynamically -->
+                        <div class="space-y-1 text-[11px] mono">
+                            <div class="space-y-0.5" id="orderBookAsks"></div>
+                            <div class="border-y border-[#1C212E] py-1 text-center my-2 bg-[#10141D] rounded">
                                 <span class="text-gray-400">Spread:</span>
-                                <span class="text-amber-500 font-bold ml-1">99.8% (Toxic)</span>
+                                <span id="liveSpread" class="text-amber-500 font-bold ml-1">99.8% (Danger)</span>
                             </div>
-
-                            <!-- Buys (Bids) - Green -->
-                            <div class="space-y-0.5">
-                                <div class="flex justify-between text-green-400/80 hover:bg-green-500/5 px-1 py-0.5 rounded transition">
-                                    <span>0.00004200</span>
-                                    <span>4,200</span>
-                                    <span class="text-gray-500">Degen Hopeful</span>
-                                </div>
-                                <div class="flex justify-between text-green-400/60 hover:bg-green-500/5 px-1 py-0.5 rounded transition">
-                                    <span>0.00002100</span>
-                                    <span>15,000</span>
-                                    <span class="text-gray-500">Sniper Bot #8</span>
-                                </div>
-                                <div class="flex justify-between text-green-400/40 hover:bg-green-500/5 px-1 py-0.5 rounded transition">
-                                    <span>0.00000100</span>
-                                    <span>1,200,000</span>
-                                    <span class="text-gray-500">Dust Catcher</span>
-                                </div>
-                            </div>
+                            <div class="space-y-0.5" id="orderBookBids"></div>
                         </div>
                     </div>
 
-                    <!-- Trading Entry Point -->
-                    <div class="mt-6 pt-4 border-t border-[#1E2329] space-y-3">
+                    <!-- Trading panel -->
+                    <div class="mt-6 pt-4 border-t border-[#1A2232] space-y-3">
                         <div class="flex space-x-2">
-                            <button id="tradeBuyBtn" onclick="toggleTradeType('buy')" class="w-1/2 py-2 bg-green-500 text-black font-bold text-center rounded text-xs transition duration-150 shadow-md">
+                            <button id="tradeBuyBtn" onclick="toggleTradeType('buy')" class="w-1/2 py-2 bg-green-500 text-black font-extrabold text-center rounded text-xs transition shadow-md">
                                 BUY USDSHT
                             </button>
-                            <button id="tradeSellBtn" onclick="toggleTradeType('sell')" class="w-1/2 py-2 bg-[#1E2329] text-gray-300 font-semibold text-center rounded text-xs transition duration-150">
+                            <button id="tradeSellBtn" onclick="toggleTradeType('sell')" class="w-1/2 py-2 bg-[#1C212E] text-gray-300 font-semibold text-center rounded text-xs transition">
                                 RUG (SELL)
                             </button>
                         </div>
@@ -391,9 +421,9 @@
                         <div class="space-y-2">
                             <div class="flex justify-between text-xs text-gray-400">
                                 <span>Avbl Balance</span>
-                                <span>1,420.69 USDT</span>
+                                <span><span id="buyBalDisplay">1420.69</span> USDT</span>
                             </div>
-                            <div class="bg-[#1A1F26] p-2.5 rounded-lg border border-[#2B3139] flex justify-between items-center">
+                            <div class="bg-[#10141D] p-2.5 rounded-lg border border-[#1A2232] flex justify-between items-center">
                                 <input type="number" id="tradeAmount" value="100" class="bg-transparent text-white font-semibold text-sm focus:outline-none w-2/3" placeholder="0.00">
                                 <span class="text-xs text-gray-400 font-bold">USDT</span>
                             </div>
@@ -405,63 +435,79 @@
                 </div>
             </div>
 
-            <!-- Transaction Notification Log -->
-            <div class="bg-[#12161A] border border-[#1E2329] rounded-xl p-4">
-                <h4 class="text-sm font-semibold mb-3 flex items-center justify-between">
-                    <span>Live Shitter Chain Feed</span>
-                    <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping"></span>
-                </h4>
-                <div class="space-y-2 text-xs mono" id="blockchainLogs">
-                    <!-- Dynamic logs injection -->
+            <!-- Transaction Logs -->
+            <div class="bg-[#0C0F16] border border-[#1A2232] rounded-xl p-4 shadow-lg">
+                <div class="flex items-center justify-between mb-3">
+                    <h4 class="text-sm font-semibold flex items-center gap-2">
+                        <span>Live Shitter Chain Feed</span>
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping"></span>
+                    </h4>
+                    <div class="flex items-center space-x-2">
+                        <button id="chaosModeBtn" onclick="toggleChaosMode()" class="bg-[#1C212E] text-[9px] text-gray-400 hover:text-amber-400 border border-[#1B2130] px-2 py-0.5 rounded font-mono font-bold uppercase transition">
+                            Chaos Speed: OFF
+                        </button>
+                        <span class="text-[10px] text-gray-500 font-mono" id="simulatedBlockNum">BLOCK #942,012</span>
+                    </div>
                 </div>
+                <div class="space-y-2 text-xs mono max-h-[220px] overflow-y-auto" id="blockchainLogs"></div>
             </div>
         </section>
 
         <!-- ================= AI AUDITOR TERMINAL ================= -->
         <section id="content-ai" class="hidden space-y-6">
-            <div class="bg-[#12161A] border border-[#1E2329] rounded-xl p-6">
-                <div class="flex items-center space-x-3 border-b border-[#1E2329] pb-4 mb-4">
-                    <div class="bg-blue-500/20 p-2 rounded-lg text-blue-400">
-                        <i class="fa-solid fa-robot text-xl"></i>
+            <div class="bg-[#0C0F16] border border-[#1A2232] rounded-xl p-6 shadow-lg">
+                <div class="flex items-center space-x-3 border-b border-[#1A2232] pb-4 mb-4">
+                    <div class="bg-blue-500/20 p-2.5 rounded-lg text-blue-400">
+                        <i class="fa-solid fa-robot text-xl animate-bounce"></i>
                     </div>
                     <div>
-                        <h2 class="text-lg font-bold">Shit-GPT Contract Auditor V1.3</h2>
-                        <p class="text-xs text-gray-400">AI analysis that is 100% accurate because it assumes every single token is a rug.</p>
+                        <h2 class="text-lg font-bold text-white">Shit-GPT Smart Auditor V2.0</h2>
+                        <p class="text-xs text-gray-400">Upload solidity code, paste contract addresses, or roast prebuilt toxic templates instantly.</p>
                     </div>
                 </div>
 
                 <div class="space-y-4">
-                    <label class="block text-xs text-gray-400 uppercase tracking-wider font-semibold">Enter Target Smart Contract Address:</label>
-                    <div class="flex flex-col md:flex-row gap-3">
-                        <input type="text" id="contractInput" value="0x789SHT...fA420" class="flex-grow bg-[#1A1F26] text-white font-mono px-4 py-3 rounded-lg border border-[#2B3139] focus:outline-none focus:border-blue-500 text-sm" placeholder="Paste toxic contract address here...">
-                        <button onclick="auditContract()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-6 py-3 rounded-lg font-bold text-sm tracking-wide shadow-lg transition">
-                            Run Safety Audit
-                        </button>
+                    <div class="flex justify-between items-center">
+                        <label class="block text-xs text-gray-400 uppercase tracking-wider font-semibold">Code / Contract / Prompt Target:</label>
+                        <div class="flex gap-2">
+                            <button onclick="loadTemplate('safemoon')" class="bg-[#1C212E] hover:bg-[#252E3E] text-xs text-gray-300 px-2.5 py-1 rounded border border-[#1A2232]">
+                                Load "SafePlunge.sol"
+                            </button>
+                            <button onclick="loadTemplate('infinite')" class="bg-[#1C212E] hover:bg-[#252E3E] text-xs text-gray-300 px-2.5 py-1 rounded border border-[#1A2232]">
+                                Load "LamboSqueeze.sol"
+                            </button>
+                        </div>
                     </div>
+                    
+                    <textarea id="contractInput" rows="5" class="w-full bg-[#10141D] text-white font-mono px-4 py-3 rounded-lg border border-[#1A2232] focus:outline-none focus:border-blue-500 text-xs" placeholder="Paste Solidity contract logic or target address (e.g. 0x89SHT69...fA420) to run comprehensive safety assessments..."></textarea>
+                    
+                    <button onclick="auditContract()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white py-3 rounded-lg font-bold text-sm tracking-wide shadow-lg transition">
+                        Compile & Audit Contract Bytecode
+                    </button>
 
-                    <!-- AI Audit Results Panel -->
-                    <div id="auditResults" class="hidden bg-[#181D23] rounded-lg p-5 border border-dashed border-[#2B3139]">
-                        <div class="flex items-center justify-between border-b border-[#2B3139] pb-3 mb-3">
-                            <span class="font-bold text-sm tracking-wider uppercase text-gray-300">Analysis Report</span>
+                    <!-- Audit Results -->
+                    <div id="auditResults" class="hidden bg-[#10141D] rounded-lg p-5 border border-dashed border-[#1A2232]">
+                        <div class="flex items-center justify-between border-b border-[#1A2232] pb-3 mb-3">
+                            <span class="font-bold text-sm tracking-wider uppercase text-gray-300">Detailed Risk Vector Analysis</span>
                             <span id="auditSafetyBadge" class="px-2.5 py-1 text-[11px] rounded-full font-bold"></span>
                         </div>
                         <div class="space-y-3">
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                                <div class="bg-[#12161A] p-3 rounded-md">
-                                    <span class="text-gray-400 block mb-1">Rug-o-Meter Probability:</span>
+                                <div class="bg-[#070A0F] p-3 rounded-md">
+                                    <span class="text-gray-400 block mb-1">Probability of Instant Dev Exit:</span>
                                     <span id="auditProb" class="text-xl font-bold"></span>
                                 </div>
-                                <div class="bg-[#12161A] p-3 rounded-md">
-                                    <span class="text-gray-400 block mb-1">Developer Sentiment:</span>
-                                    <span id="auditDevSentiment" class="text-xl font-bold"></span>
+                                <div class="bg-[#070A0F] p-3 rounded-md">
+                                    <span class="text-gray-400 block mb-1">Detected Bytecode Signature:</span>
+                                    <span id="auditDevSentiment" class="text-xl font-bold text-amber-500"></span>
                                 </div>
-                                <div class="bg-[#12161A] p-3 rounded-md">
-                                    <span class="text-gray-400 block mb-1">Liquidity Status:</span>
+                                <div class="bg-[#070A0F] p-3 rounded-md">
+                                    <span class="text-gray-400 block mb-1">Liquidity Lock Status:</span>
                                     <span id="auditLiqStatus" class="text-xl font-bold"></span>
                                 </div>
                             </div>
-                            <div class="bg-[#12161A] p-4 rounded-md">
-                                <span class="text-xs text-gray-400 font-semibold block mb-2"><i class="fa-solid fa-comment-dots mr-1"></i> Shit-GPT AI Verdict:</span>
+                            <div class="bg-[#070A0F] p-4 rounded-md">
+                                <span class="text-xs text-gray-400 font-semibold block mb-2"><i class="fa-solid fa-comment-dots mr-1"></i> Auditor Verdict:</span>
                                 <p id="auditParagraph" class="text-sm italic text-gray-200 leading-relaxed font-light"></p>
                             </div>
                         </div>
@@ -473,111 +519,145 @@
         <!-- ================= RUG DEPLOYER LAUNCHPAD GAME ================= -->
         <section id="content-deployer" class="hidden space-y-6">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Deployment Configuration Form -->
-                <div class="bg-[#12161A] border border-[#1E2329] rounded-xl p-6 flex flex-col justify-between">
+                <!-- Deployment Configuration -->
+                <div class="bg-[#0C0F16] border border-[#1A2232] rounded-xl p-6 flex flex-col justify-between shadow-lg space-y-4">
                     <div>
-                        <div class="border-b border-[#1E2329] pb-3 mb-4 flex justify-between items-center">
+                        <div class="border-b border-[#1A2232] pb-3 mb-4 flex justify-between items-center">
                             <h3 class="font-bold text-base flex items-center gap-1.5 text-amber-500">
-                                <i class="fa-solid fa-rocket"></i> Shitter-Token Creator
+                                <i class="fa-solid fa-rocket animate-pulse"></i> Shitter-Token Creator
                             </h3>
-                            <span class="text-[10px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full font-bold">Speedrun Rug Edition</span>
+                            <span class="text-[10px] bg-amber-500/10 text-amber-500 px-2 py-0.5 rounded-full font-bold">Custom Rug Parameters</span>
                         </div>
 
-                        <div class="space-y-4 text-xs">
+                        <div class="space-y-3.5 text-xs">
                             <div>
                                 <label class="block text-gray-400 mb-1.5 uppercase font-semibold">Token Name</label>
-                                <input type="text" id="deployName" value="Super Golden Toilet" class="w-full bg-[#1A1F26] text-white px-3 py-2 rounded border border-[#2B3139] focus:outline-none focus:border-amber-500" placeholder="e.g. Baby Doge Golden Rug">
+                                <input type="text" id="deployName" value="Golden Toilet Elon" class="w-full bg-[#10141D] text-white px-3 py-2 rounded border border-[#1A2232] focus:outline-none focus:border-amber-500">
                             </div>
                             <div>
                                 <label class="block text-gray-400 mb-1.5 uppercase font-semibold">Token Ticker Symbol</label>
-                                <input type="text" id="deployTicker" value="SGTILET" class="w-full bg-[#1A1F26] text-white px-3 py-2 rounded border border-[#2B3139] focus:outline-none focus:border-amber-500 uppercase" placeholder="e.g. BDGR">
+                                <input type="text" id="deployTicker" value="GTE" class="w-full bg-[#10141D] text-white px-3 py-2 rounded border border-[#1A2232] focus:outline-none focus:border-amber-500 uppercase">
                             </div>
                             <div>
                                 <label class="block text-gray-400 mb-1.5 uppercase font-semibold">Pre-sale Target (USDT)</label>
-                                <input type="number" id="deployTarget" value="5000" class="w-full bg-[#1A1F26] text-white px-3 py-2 rounded border border-[#2B3139] focus:outline-none focus:border-amber-500" placeholder="Target Presale">
+                                <input type="number" id="deployTarget" value="8500" class="w-full bg-[#10141D] text-white px-3 py-2 rounded border border-[#1A2232] focus:outline-none focus:border-amber-500">
                             </div>
                             <div>
-                                <label class="block text-gray-400 mb-1.5 uppercase font-semibold">Automated Dump Delay (seconds)</label>
-                                <input type="range" id="deployDelay" min="10" max="120" value="30" class="w-full accent-amber-500 bg-[#1A1F26] rounded h-2">
-                                <div class="flex justify-between text-gray-400 mt-1">
-                                    <span>10s (Fast exit)</span>
-                                    <span id="delayDisplay" class="text-amber-500 font-bold">30s</span>
-                                    <span>120s (Slow drip)</span>
+                                <label class="block text-gray-400 mb-1.5 uppercase font-semibold">Rug Exit Vector</label>
+                                <select id="deployVector" class="w-full bg-[#10141D] text-white px-3 py-2 rounded border border-[#1A2232] focus:outline-none focus:border-amber-500">
+                                    <option value="lp">Standard LP Yank (Drain everything instantly)</option>
+                                    <option value="honeypot">Honeypot protocol (Disable sells, print fake price)</option>
+                                    <option value="drip">Slow Drip Dump (Micro-sell over time)</option>
+                                    <option value="tax">Tax Squeeze (Set sell fee to 99.9%)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-400 mb-1.5 uppercase font-semibold">Deployment Speed Threshold</label>
+                                <input type="range" id="deployDelay" min="15" max="180" value="45" class="w-full accent-amber-500 bg-[#10141D] rounded h-2">
+                                <div class="flex justify-between text-gray-400 mt-1 font-mono">
+                                    <span>15s (Speedrun)</span>
+                                    <span id="delayDisplay" class="text-amber-500 font-bold">45s</span>
+                                    <span>180s (Slow Drip)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <button onclick="deployRug()" class="mt-6 w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold rounded-lg text-sm tracking-wide shadow-lg transition">
+                    <button onclick="deployRug()" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold rounded-lg text-sm tracking-wide shadow-lg transition">
                         Deploy Toxic Contract
                     </button>
                 </div>
 
-                <!-- Live Rug Monitor (Action Pane) -->
-                <div class="lg:col-span-2 bg-[#12161A] border border-[#1E2329] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden">
-                    <div id="deployerPlaceholder" class="absolute inset-0 bg-[#12161A]/95 z-10 flex flex-col items-center justify-center text-center p-6">
+                <!-- Live Rug Monitor (Visual Active Chart & Chat Simulator) -->
+                <div class="lg:col-span-2 bg-[#0C0F16] border border-[#1A2232] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden shadow-lg min-h-[500px]">
+                    <div id="deployerPlaceholder" class="absolute inset-0 bg-[#0C0F16]/95 z-30 flex flex-col items-center justify-center text-center p-6">
                         <i class="fa-solid fa-toilet-paper text-6xl text-gray-600 mb-4 animate-bounce"></i>
                         <h4 class="font-bold text-lg text-gray-300">No Active Deployment</h4>
-                        <p class="text-xs text-gray-400 max-w-sm mt-1">
-                            Deploy your custom toxic meme coin using the configurator to start collecting sucker funds and trigger the ultimate rug pull.
+                        <p class="text-xs text-gray-400 max-w-sm mt-1 leading-relaxed font-light">
+                            Configure parameters in the generator pane, then hit "Deploy" to attract mock-capital, initiate marketing, and witness custom live chart activity!
                         </p>
                     </div>
 
-                    <div>
-                        <div class="flex items-center justify-between border-b border-[#1E2329] pb-3 mb-4">
-                            <div>
-                                <h3 id="monitorTokenName" class="font-extrabold text-xl tracking-wide">TOKEN_NAME</h3>
-                                <p id="monitorTokenTicker" class="text-xs text-gray-400 font-mono">TOKEN_TICKER_ADDRESS</p>
+                    <div class="z-10 space-y-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between border-b border-[#1A2232] pb-3 mb-2">
+                                <div>
+                                    <h3 id="monitorTokenName" class="font-extrabold text-xl tracking-wide text-white">TOKEN_NAME</h3>
+                                    <p id="monitorTokenTicker" class="text-xs text-amber-500 font-mono">TOKEN_TICKER_ADDRESS</p>
+                                </div>
+                                <span id="monitorStatus" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-500/10 text-green-400">FUNDRAISING ACTIVE</span>
                             </div>
-                            <span id="monitorStatus" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-500/10 text-green-400">FUNDRAISING ACTIVE</span>
+
+                            <!-- Interactive Mini Stats -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center mb-3">
+                                <div class="bg-[#070A0F] p-2 rounded border border-[#131924]">
+                                    <span class="text-gray-400 text-[10px] block">Capital Raised</span>
+                                    <span id="monitorRaised" class="text-green-400 font-bold text-sm font-mono">$0</span>
+                                </div>
+                                <div class="bg-[#070A0F] p-2 rounded border border-[#131924]">
+                                    <span class="text-gray-400 text-[10px] block">Suckers Buying</span>
+                                    <span id="monitorSuckers" class="text-white font-bold text-sm font-mono">0</span>
+                                </div>
+                                <div class="bg-[#070A0F] p-2 rounded border border-[#131924]">
+                                    <span class="text-gray-400 text-[10px] block">Price</span>
+                                    <span id="monitorPrice" class="text-amber-400 font-bold text-sm font-mono">$0.0001</span>
+                                </div>
+                                <div class="bg-[#070A0F] p-2 rounded border border-[#131924]">
+                                    <span class="text-gray-400 text-[10px] block">Time Left</span>
+                                    <span id="monitorTimer" class="text-rose-400 font-bold text-sm font-mono">45s</span>
+                                </div>
+                            </div>
+
+                            <!-- Visual Token-specific Chart -->
+                            <div class="bg-[#040609] rounded-lg border border-[#1A2232] h-[150px] relative overflow-hidden mb-3">
+                                <canvas id="activeTokenCanvas" class="w-full h-full block"></canvas>
+                                <span class="absolute top-2 left-2 text-[9px] text-gray-500 font-mono uppercase bg-black/40 px-1.5 py-0.5 rounded">Active Deployment Chart</span>
+                            </div>
+
+                            <!-- Progress Bar -->
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-[11px] font-semibold">
+                                    <span class="text-gray-400">Presale Inflow Saturation</span>
+                                    <span id="monitorProgressPct" class="text-green-400">0%</span>
+                                </div>
+                                <div class="w-full bg-[#10141D] h-2.5 rounded-full overflow-hidden border border-[#1A2232]">
+                                    <div id="monitorProgressBar" class="bg-gradient-to-r from-green-500 to-emerald-400 h-full w-0 transition-all duration-300"></div>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Interactive Stats for Active Deploy -->
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 text-center">
-                            <div class="bg-[#181D23] p-3 rounded-lg">
-                                <span class="text-gray-400 text-xs block mb-0.5">Mock Capital Raised</span>
-                                <span id="monitorRaised" class="text-green-400 font-bold text-lg font-mono">$0</span>
-                            </div>
-                            <div class="bg-[#181D23] p-3 rounded-lg">
-                                <span class="text-gray-400 text-xs block mb-0.5">Suckers Participating</span>
-                                <span id="monitorSuckers" class="text-white font-bold text-lg font-mono">0</span>
-                            </div>
-                            <div class="bg-[#181D23] p-3 rounded-lg">
-                                <span class="text-gray-400 text-xs block mb-0.5">Simulated Token Price</span>
-                                <span id="monitorPrice" class="text-amber-400 font-bold text-lg font-mono">$0.0001</span>
-                            </div>
-                            <div class="bg-[#181D23] p-3 rounded-lg">
-                                <span class="text-gray-400 text-xs block mb-0.5">Time Remaining</span>
-                                <span id="monitorTimer" class="text-red-400 font-bold text-lg font-mono">30s</span>
-                            </div>
-                        </div>
-
-                        <!-- Progress Bar of Capital Inflow -->
-                        <div class="space-y-2">
-                            <div class="flex justify-between text-xs font-semibold">
-                                <span class="text-gray-400">Presale Inflow Saturation</span>
-                                <span id="monitorProgressPct" class="text-green-400">0%</span>
-                            </div>
-                            <div class="w-full bg-[#1A1F26] h-3 rounded-full overflow-hidden border border-[#2B3139]">
-                                <div id="monitorProgressBar" class="bg-gradient-to-r from-green-500 to-emerald-400 h-full w-0 transition-all duration-300"></div>
+                        <!-- Marketing Campaigns Panel -->
+                        <div class="bg-[#070A0F] border border-[#1A2232] rounded-lg p-3 space-y-2">
+                            <span class="text-[10px] text-amber-500 font-extrabold uppercase block tracking-wider"><i class="fa-solid fa-bullhorn mr-1"></i> Interactive Marketing Campaigns:</span>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                <button onclick="triggerCampaign('tiktok')" class="bg-[#121926] hover:bg-[#1E293B] border border-[#1C212E] py-1.5 px-1 rounded text-[10px] text-white font-semibold transition">
+                                    🎵 TikTok Shitter
+                                </button>
+                                <button onclick="triggerCampaign('vitalik')" class="bg-[#121926] hover:bg-[#1E293B] border border-[#1C212E] py-1.5 px-1 rounded text-[10px] text-white font-semibold transition">
+                                    🐻 Vitalik Airdrop
+                                </button>
+                                <button onclick="triggerCampaign('whitepaper')" class="bg-[#121926] hover:bg-[#1E293B] border border-[#1C212E] py-1.5 px-1 rounded text-[10px] text-white font-semibold transition">
+                                    📄 AI Whitepaper
+                                </button>
+                                <button onclick="triggerCampaign('spaces')" class="bg-[#121926] hover:bg-[#1E293B] border border-[#1C212E] py-1.5 px-1 rounded text-[10px] text-white font-semibold transition">
+                                    🎙️ Toilet Space
+                                </button>
                             </div>
                         </div>
 
-                        <!-- Dynamic Commentary Feed -->
-                        <div class="mt-6 p-4 bg-[#1A1F26] rounded-lg border border-[#2B3139]">
-                            <span class="text-xs text-gray-400 font-bold block mb-2"><i class="fa-solid fa-comments"></i> Degen Chat Feed:</span>
-                            <div id="chatFeed" class="space-y-1.5 h-24 overflow-y-auto text-xs mono text-gray-300">
-                                <!-- Feeds generated dynamically -->
-                            </div>
+                        <!-- Chat Feed -->
+                        <div class="p-3 bg-[#10141D] rounded-lg border border-[#1A2232]">
+                            <span class="text-[10px] text-gray-400 font-bold block mb-1.5"><i class="fa-solid fa-comments mr-1"></i> Degen Chat Feed (Dynamic Contextual Simulation):</span>
+                            <div id="chatFeed" class="space-y-1 h-24 overflow-y-auto text-[11px] mono text-gray-300"></div>
                         </div>
                     </div>
 
-                    <!-- Trigger Rug Pull Actions -->
-                    <div class="mt-6 pt-4 border-t border-[#1E2329] flex flex-col sm:flex-row gap-3">
-                        <button onclick="addHype()" class="flex-1 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg text-sm shadow-md transition">
+                    <!-- Trigger Rug Actions -->
+                    <div class="mt-4 pt-3 border-t border-[#1A2232] flex flex-col sm:flex-row gap-3 z-10">
+                        <button onclick="addHype()" class="flex-1 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg text-xs transition shadow">
                             🤖 Inject Twitter Shills (+Hype)
                         </button>
-                        <button onclick="triggerImmediateRug()" class="flex-1 py-3 bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white font-extrabold rounded-lg text-sm tracking-wide shadow-lg transition animate-pulse uppercase">
+                        <button onclick="triggerImmediateRug()" class="flex-1 py-2.5 bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white font-extrabold rounded-lg text-xs shadow-lg transition animate-pulse uppercase">
                             <i class="fa-solid fa-skull-crossbones mr-1"></i> Pull Liquidity (RUG!)
                         </button>
                     </div>
@@ -585,60 +665,224 @@
             </div>
         </section>
 
+        <!-- ================= PONZI YIELD FARM ================= -->
+        <section id="content-staking" class="hidden space-y-6">
+            <div class="bg-[#0C0F16] border border-[#1A2232] rounded-xl p-6 shadow-lg">
+                <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-[#1A2232] pb-4 mb-6 gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-amber-500/10 text-amber-500 p-2.5 rounded-lg">
+                            <i class="fa-solid fa-tractor text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-white">Shit-Staking Triple-Yield Vault</h2>
+                            <p class="text-xs text-gray-400 font-light">Lock your wallet funds directly into highly unstable yield traps. Zero insurance, pure inflationary chaos!</p>
+                        </div>
+                    </div>
+                    <div class="bg-red-500/10 border border-red-500/20 text-rose-400 font-mono text-xs px-3 py-1 rounded max-w-max">
+                        Network APY: <span class="font-bold text-amber-400">9,999,999,999.81%</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Pool Selection and Controls -->
+                    <div class="bg-[#10141D] p-5 rounded-lg border border-[#1A2232] flex flex-col justify-between space-y-4">
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-300 mb-3 uppercase tracking-wider">Select Inflation Trap</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-3 bg-[#070A0F] p-3 rounded border border-[#1A2232] cursor-pointer">
+                                    <input type="radio" name="stakingPool" value="pool1" checked class="accent-amber-500">
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">The Hopium Vault</span>
+                                        <span class="text-[9px] text-green-400">APY: 4.2B% | Token: SHT-POOP</span>
+                                    </div>
+                                </label>
+                                <label class="flex items-center space-x-3 bg-[#070A0F] p-3 rounded border border-[#1A2232] cursor-pointer">
+                                    <input type="radio" name="stakingPool" value="pool2" class="accent-amber-500">
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">Developer's Lambo Fund</span>
+                                        <span class="text-[9px] text-amber-400">APY: 99.9B% | Token: GAS-LEAK</span>
+                                    </div>
+                                </label>
+                                <label class="flex items-center space-x-3 bg-[#070A0F] p-3 rounded border border-[#1A2232] cursor-pointer">
+                                    <input type="radio" name="stakingPool" value="pool3" class="accent-amber-500">
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">SafePlunge Tank</span>
+                                        <span class="text-[9px] text-rose-400">APY: 888.8B% | Token: WET-WIPES</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Leverage Control -->
+                        <div class="space-y-1 pt-2 border-t border-[#1A2232]">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <span class="text-gray-400 uppercase">Degeneracy Leverage</span>
+                                <span id="leverageDisplay" class="text-rose-400 font-extrabold font-mono">1x</span>
+                            </div>
+                            <input type="range" id="stakeLeverage" min="1" max="1000" value="1" class="w-full accent-rose-500 bg-[#070A0F] rounded h-1.5" oninput="updateLeverage(this.value)">
+                            <p class="text-[9px] text-rose-400/70 leading-normal">
+                                *High leverage multiplies rewards at blinding speed but increases probability of complete Liquidation Pool Collapse on any given block tick!
+                            </p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="bg-[#070A0F] p-2.5 rounded border border-[#1A2232] flex justify-between items-center">
+                                <input type="number" id="stakeAmount" value="5000" class="bg-transparent text-white font-bold font-mono focus:outline-none w-2/3 text-sm" placeholder="Amount">
+                                <span class="text-xs font-semibold text-amber-500">USDSHT</span>
+                            </div>
+                            <button onclick="stakeTokens()" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-black font-extrabold text-xs rounded-lg transition shadow-md uppercase tracking-wider">
+                                Enter Staking Pool
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Live Metrics Display -->
+                    <div class="bg-[#10141D] p-5 rounded-lg border border-[#1A2232] space-y-4">
+                        <h4 class="font-bold text-sm text-gray-300 border-b border-[#1A2232] pb-2 uppercase tracking-wider">Live Metrics</h4>
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Staked Funds:</span>
+                                <span id="stakedLocked" class="text-white font-bold">0.00 USDSHT</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Staked Target Pool:</span>
+                                <span id="stakedPoolType" class="text-amber-500 font-bold">Hopium Vault</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Multiplier Leverage:</span>
+                                <span id="stakedLeverageVal" class="text-rose-500 font-extrabold">1x</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Synthesized Pool Reward:</span>
+                                <span id="stakedYield" class="text-green-400 font-extrabold">0.000000 POOP</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Accrued Profit Value:</span>
+                                <span id="stakedValue" class="text-rose-400 font-bold">$0.00000000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Dilution Factor:</span>
+                                <span id="dilutionFactor" class="text-rose-500 font-bold">0.0%</span>
+                            </div>
+                        </div>
+                        <button onclick="claimStakingRewards()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded transition shadow">
+                            Harvest Reward Tokens
+                        </button>
+                    </div>
+
+                    <!-- Live Yield Feed Log -->
+                    <div class="bg-[#10141D] p-5 rounded-lg border border-[#1A2232] flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-300 border-b border-[#1A2232] pb-2 mb-3 uppercase tracking-wider">Live Yield Logs</h4>
+                            <div class="space-y-2 h-[180px] overflow-y-auto text-[10px] mono text-gray-400" id="stakingEventLog">
+                                <div class="text-gray-500 italic">[System] Pool modules initialized. Hyper-inflation code ready.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#12161A] border-l-4 border-blue-500 px-4 py-3 rounded shadow-2xl flex items-center space-x-3 text-sm text-gray-100 hidden">
-        <span id="toastIcon" class="text-blue-400"><i class="fa-solid fa-info-circle"></i></span>
-        <span id="toastMessage">Default Message</span>
+    <!-- ================= DEGEN HUB: EASTER EGGS, AUDIO SOUNDBOARD & LAMBO GOAL ================= -->
+    <section class="max-w-7xl mx-auto px-4 pb-6 w-full">
+        <div class="bg-[#0C0F16] border border-[#1A2232] rounded-xl p-5 shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Lambo Progress Tracker -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-xs uppercase text-amber-500 tracking-widest"><i class="fa-solid fa-car"></i> Lambo Target Tracker</h4>
+                <div class="bg-[#10141D] p-4 rounded-lg border border-[#1A2232] space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-gray-400">Total Accumulated Profit:</span>
+                        <span class="text-green-400 font-bold font-mono">$<span id="accProfitDisplay">0.00</span> USDT</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-gray-400">Current Lambo Tier:</span>
+                        <span id="lamboTierDisplay" class="text-amber-500 font-extrabold uppercase">Hot Wheels Lambo</span>
+                    </div>
+                    <div class="w-full bg-[#070A0F] h-2 rounded-full overflow-hidden border border-[#1A2232]">
+                        <div id="lamboProgressBar" class="bg-gradient-to-r from-amber-500 to-yellow-400 h-full w-2 transition-all duration-300"></div>
+                    </div>
+                    <p id="lamboDescText" class="text-[10px] text-gray-500 italic font-light">
+                        Keep making profitable trades, running successful launchpad rugs, or farming high-leverage pools to afford an actual physical Lambo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Custom Synthesizer Soundboard -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-xs uppercase text-blue-500 tracking-widest"><i class="fa-solid fa-music"></i> Synthesizer Soundboard</h4>
+                <div class="bg-[#10141D] p-4 rounded-lg border border-[#1A2232] grid grid-cols-3 gap-2">
+                    <button onclick="playSound('click')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
+                        🔊 Click
+                    </button>
+                    <button onclick="playSound('buy')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
+                        🔊 Buy
+                    </button>
+                    <button onclick="playSound('stake')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
+                        🔊 Stake
+                    </button>
+                    <button onclick="playSound('alarm')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
+                        🔊 Siren
+                    </button>
+                    <button onclick="playSound('launch')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
+                        🔊 Launch
+                    </button>
+                    <button onclick="playSound('lambo')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
+                        🔊 Lambo
+                    </button>
+                    <button onclick="playSound('liquidated')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition col-span-3">
+                        🔊 Instant Liquidation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standard Toast Notifications -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#0C0F16] border-l-4 border-blue-500 px-5 py-3.5 rounded-lg shadow-2xl flex items-center space-x-3 text-sm text-gray-100 hidden">
+        <span id="toastIcon" class="text-blue-400"><i class="fa-solid fa-info-circle text-lg"></i></span>
+        <span id="toastMessage">Default Alert State</span>
     </div>
 
-    <footer class="bg-[#0B0E11] border-t border-[#1E2329] py-2 px-4 text-center text-[11px] text-gray-500 font-mono flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto w-full gap-2">
+    <!-- Alert Modal Box -->
+    <div id="customAlertModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+        <div class="bg-[#0C0F16] border border-rose-500/40 max-w-md w-full p-6 rounded-xl shadow-2xl text-center space-y-4 m-4">
+            <div class="w-16 h-16 bg-red-500/10 text-rose-500 rounded-full flex items-center justify-center mx-auto text-3xl animate-pulse">
+                <i class="fa-solid fa-biohazard"></i>
+            </div>
+            <h3 class="text-rose-500 font-black text-xl tracking-tight">RUG CONGESTION DETECTED</h3>
+            <p id="alertModalMessage" class="text-gray-300 text-sm leading-relaxed font-light"></p>
+            <button onclick="closeAlertModal()" class="px-6 py-2 bg-rose-500 text-white hover:bg-rose-600 rounded-lg text-xs font-bold uppercase transition">
+                I accept and wash my hands
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#090C12] border-t border-[#1A2232] py-3 px-4 text-center text-[10px] text-gray-500 font-mono flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto w-full gap-2">
         <div class="flex items-center space-x-3">
-            <span>NETWORK: <span class="text-green-400">SHITTERS_MAINNET-1.0</span></span>
-            <span class="text-gray-600">|</span>
-            <span>GAS: <span class="text-amber-500">420.69 GWEI</span></span>
+            <span>NETWORK: <span class="text-green-400 font-bold">SHITTERS_MAINNET-3.0</span></span>
+            <span class="text-gray-700">|</span>
+            <span>GAS: <span class="text-amber-500">4,206 GWEI</span></span>
         </div>
         <div>
-            <span>© 2026 Shitters Foundation. Built with extreme toxicity. No refund guarantee.</span>
+            <span>© 2026 Shitters Foundation. Decentrally toxic. Absolute Zero Refund Policy.</span>
         </div>
     </footer>
 
-    <!-- ================= JAVASCRIPT APP LOGIC ================= -->
+    <!-- ================= JAVASCRIPT EXCH CORE ENGINE ================= -->
     <script>
-        let activeTab = 'info';
-        let mainPrice = 0.00004206;
-        let mainPriceChange = -99.98;
-        
-        // Tab system logic
-        function switchTab(tabName) {
-            playSound('click');
-            // Hide all tabs
-            document.getElementById('content-info').classList.add('hidden');
-            document.getElementById('content-markets').classList.add('hidden');
-            document.getElementById('content-ai').classList.add('hidden');
-            document.getElementById('content-deployer').classList.add('hidden');
-            
-            // Remove active classes on nav
-            document.querySelectorAll('nav button').forEach(btn => {
-                btn.classList.remove('border-blue-500', 'text-white');
-                btn.classList.add('border-transparent', 'text-gray-400');
-            });
-
-            // Show target tab
-            document.getElementById(`content-${tabName}`).classList.remove('hidden');
-            const targetBtn = document.getElementById(`tab-${tabName}`);
-            targetBtn.classList.add('border-blue-500', 'text-white');
-            targetBtn.classList.remove('border-transparent', 'text-gray-400');
-            
-            activeTab = tabName;
-
-            // Trigger canvas size adjustment if loading markets
-            if (tabName === 'markets') {
-                setTimeout(initCanvas, 100);
-            }
+        function showGlobalAlert(msg) {
+            document.getElementById('alertModalMessage').innerText = msg;
+            document.getElementById('customAlertModal').classList.remove('hidden');
         }
 
-        // Display standard Toast Box helper
+        function closeAlertModal() {
+            playSound('click');
+            document.getElementById('customAlertModal').classList.add('hidden');
+        }
+
         function showToast(msg, type = 'info') {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toastMessage');
@@ -649,56 +893,100 @@
             if (type === 'error') {
                 toast.classList.remove('border-blue-500', 'border-green-500');
                 toast.classList.add('border-red-500');
-                toastIcon.innerHTML = '<i class="fa-solid fa-circle-xmark text-red-500"></i>';
+                toastIcon.innerHTML = '<i class="fa-solid fa-circle-xmark text-red-500 text-lg"></i>';
             } else if (type === 'success') {
                 toast.classList.remove('border-blue-500', 'border-red-500');
                 toast.classList.add('border-green-500');
-                toastIcon.innerHTML = '<i class="fa-solid fa-circle-check text-green-500"></i>';
+                toastIcon.innerHTML = '<i class="fa-solid fa-circle-check text-green-500 text-lg"></i>';
             } else {
                 toast.classList.remove('border-red-500', 'border-green-500');
                 toast.classList.add('border-blue-500');
-                toastIcon.innerHTML = '<i class="fa-solid fa-circle-info text-blue-500"></i>';
+                toastIcon.innerHTML = '<i class="fa-solid fa-circle-info text-blue-500 text-lg"></i>';
             }
             
             toast.classList.remove('hidden');
             setTimeout(() => {
                 toast.classList.add('hidden');
-            }, 4500);
+            }, 5000);
         }
 
+        // Tab switches
+        function switchTab(tabName) {
+            playSound('click');
+            
+            document.getElementById('content-info').classList.add('hidden');
+            document.getElementById('content-markets').classList.add('hidden');
+            document.getElementById('content-ai').classList.add('hidden');
+            document.getElementById('content-deployer').classList.add('hidden');
+            document.getElementById('content-staking').classList.add('hidden');
+            
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'text-white');
+                btn.classList.add('border-transparent', 'text-gray-400');
+            });
+
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            const targetBtn = document.getElementById(`tab-${tabName}`);
+            targetBtn.classList.add('border-blue-500', 'text-white');
+            targetBtn.classList.remove('border-transparent', 'text-gray-400');
+            
+            activeTab = tabName;
+
+            if (tabName === 'markets') {
+                setTimeout(initCanvas, 80);
+            }
+            if (tabName === 'deployer') {
+                setTimeout(initActiveTokenCanvas, 80);
+            }
+        }
+
+        // Global displays
         const headerPriceEl = document.getElementById('headerPrice');
         const headerPercentEl = document.getElementById('headerPercent');
         const statHighEl = document.getElementById('statHigh');
         const statLowEl = document.getElementById('statLow');
+        const statVolEl = document.getElementById('statVol');
+        const displayWalletBalEl = document.getElementById('displayWalletBal');
+        const displayWalletBuyEl = document.getElementById('buyBalDisplay');
+
+        function updateWalletDisplay() {
+            displayWalletBalEl.innerText = mockWalletBalance.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            if (displayWalletBuyEl) {
+                displayWalletBuyEl.innerText = mockWalletBalance.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            }
+        }
 
         function updateTickerDisplay(newPrice) {
             const oldPrice = mainPrice;
             mainPrice = newPrice;
-            
             headerPriceEl.innerText = mainPrice.toFixed(8);
             
-            // Highlight up/down fluctuations matching standard exchange displays
             if (newPrice > oldPrice) {
-                headerPriceEl.className = "text-[#0ECB81] font-bold tracking-tight flash-up";
+                headerPriceEl.className = "text-[#10B981] font-extrabold tracking-tight flash-up";
             } else {
-                headerPriceEl.className = "text-[#F6465D] font-bold tracking-tight flash-down";
+                headerPriceEl.className = "text-rose-500 font-extrabold tracking-tight flash-down";
             }
             
-            // Random fluctuations in percentage drop, remaining consistently red
-            mainPriceChange = -99.98 + (Math.random() * 0.05);
+            mainPriceChange = -99.98 + (Math.random() * 0.08);
             headerPercentEl.innerText = `${mainPriceChange.toFixed(2)}%`;
+            statHighEl.innerText = (mainPrice * 120).toFixed(8);
+            statLowEl.innerText = (mainPrice * 0.05).toFixed(8);
         }
 
-        // Random live ticker updates
+        let tradingVol = 9.81;
         setInterval(() => {
-            if (activeTab === 'markets' || Math.random() < 0.3) {
-                const variance = (Math.random() - 0.52) * 0.0000005; // Slightly biased downward
-                let tempPrice = mainPrice + variance;
-                if (tempPrice < 0.00000001) tempPrice = 0.00000001;
-                updateTickerDisplay(tempPrice);
-            }
-        }, 2000);
+            tradingVol += Math.random() * 0.04;
+            statVolEl.innerText = `${tradingVol.toFixed(2)}B`;
+        }, 3000);
 
+        setInterval(() => {
+            blockNumber++;
+            document.getElementById('simulatedBlockNum').innerText = `BLOCK #${blockNumber.toLocaleString()}`;
+        }, 2000);
+    </script>
+
+    <!-- Markets Graph Logic -->
+    <script>
         const canvas = document.getElementById('tradingCanvas');
         let ctx = null;
         let chartData = [];
@@ -708,19 +996,17 @@
             if (!canvas) return;
             ctx = canvas.getContext('2d');
             
-            // Set canvas dynamic resolution
             const rect = canvas.getBoundingClientRect();
             canvas.width = rect.width;
             canvas.height = rect.height;
             
-            // Populate mock starting chart data if empty
             if (chartData.length === 0) {
-                let initialVal = 0.00004206;
-                for (let i = 0; i < 40; i++) {
-                    const diff = (Math.random() - 0.5) * 0.000008;
-                    initialVal += diff;
-                    if (initialVal < 0.000001) initialVal = 0.000001;
-                    chartData.push(initialVal);
+                let currentPointVal = 0.00004206;
+                for (let i = 0; i < 60; i++) {
+                    const diff = (Math.random() - 0.52) * 0.000004;
+                    currentPointVal += diff;
+                    if (currentPointVal < 0.000001) currentPointVal = 0.000001;
+                    chartData.push(currentPointVal);
                 }
             }
             drawChart();
@@ -735,35 +1021,31 @@
             const padding = 20;
 
             // Draw grid lines
-            ctx.strokeStyle = '#15191E';
+            ctx.strokeStyle = '#11151E';
             ctx.lineWidth = 1;
-            for (let i = 1; i < 5; i++) {
-                // Horizontal grids
-                let y = (height / 5) * i;
+            for (let i = 1; i < 6; i++) {
+                let y = (height / 6) * i;
                 ctx.beginPath();
                 ctx.moveTo(0, y);
                 ctx.lineTo(width, y);
                 ctx.stroke();
 
-                // Vertical grids
-                let x = (width / 5) * i;
+                let x = (width / 6) * i;
                 ctx.beginPath();
                 ctx.moveTo(x, 0);
                 ctx.lineTo(x, height);
                 ctx.stroke();
             }
 
-            // Find Min / Max bounds of price point data
             const maxVal = Math.max(...chartData) * 1.05;
             const minVal = Math.min(...chartData) * 0.95;
             const stepX = (width - padding * 2) / (chartData.length - 1);
 
-            // Create Glow / Area under curve gradient
-            const grad = ctx.createLinearGradient(0, 0, 0, height);
-            grad.addColorStop(0, 'rgba(59, 130, 246, 0.2)');
-            grad.addColorStop(1, 'rgba(59, 130, 246, 0)');
+            // Chart area filling
+            const gradient = ctx.createLinearGradient(0, 0, 0, height);
+            gradient.addColorStop(0, 'rgba(59, 130, 246, 0.15)');
+            gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
 
-            // Build outline coordinates
             ctx.beginPath();
             let firstX = padding;
             let firstY = height - padding - ((chartData[0] - minVal) / (maxVal - minVal)) * (height - padding * 2);
@@ -775,77 +1057,139 @@
                 ctx.lineTo(x, y);
             }
 
-            ctx.strokeStyle = '#3B82F6'; // Beautiful blue line color matching active Tab styling
-            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#3B82F6';
+            ctx.lineWidth = 2.5;
             ctx.stroke();
 
-            // Finish the filled area path below curve
             let lastX = padding + (chartData.length - 1) * stepX;
             ctx.lineTo(lastX, height);
             ctx.lineTo(firstX, height);
             ctx.closePath();
-            ctx.fillStyle = grad;
+            ctx.fillStyle = gradient;
             ctx.fill();
 
-            // Render current price line target marker
-            const curPriceY = height - padding - ((chartData[chartData.length - 1] - minVal) / (maxVal - minVal)) * (height - padding * 2);
-            ctx.strokeStyle = 'rgba(234, 179, 8, 0.4)';
-            ctx.setLineDash([5, 5]);
+            // Line indicator for current price
+            const currentPriceY = height - padding - ((chartData[chartData.length - 1] - minVal) / (maxVal - minVal)) * (height - padding * 2);
+            ctx.strokeStyle = 'rgba(245, 158, 11, 0.3)';
+            ctx.setLineDash([5, 4]);
             ctx.beginPath();
-            ctx.moveTo(0, curPriceY);
-            ctx.lineTo(width, curPriceY);
+            ctx.moveTo(0, currentPriceY);
+            ctx.lineTo(width, currentPriceY);
             ctx.stroke();
-            ctx.setLineDash([]); // Reset dash
+            ctx.setLineDash([]);
 
-            // Price label inside chart
             ctx.fillStyle = '#EAECEF';
-            ctx.font = '11px JetBrains Mono';
-            ctx.fillText(chartData[chartData.length - 1].toFixed(8), width - 90, curPriceY - 5);
+            ctx.font = '10px JetBrains Mono';
+            ctx.fillText(chartData[chartData.length - 1].toFixed(8), width - 85, currentPriceY - 5);
         }
 
-        // Interactive chart controls
         function setChartInterval(interval) {
             playSound('click');
             timeFrame = interval;
-            showToast(`Switched terminal chart timeframe to ${interval}. Simulating historical trash action...`);
-            
-            // Randomize graph profile data completely on interval changes
+            showToast(`Generating simulated candles on the ${interval} interval...`);
             chartData = [];
             initCanvas();
         }
 
         function forcePump() {
             playSound('buy');
-            // Pump price coordinates significantly
-            const lastVal = chartData[chartData.length - 1];
-            const pumpStrength = lastVal * (1.5 + Math.random() * 0.5); // 150%+ pump
-            chartData.push(pumpStrength);
-            if (chartData.length > 50) chartData.shift();
-            updateTickerDisplay(pumpStrength);
+            const lastPoint = chartData[chartData.length - 1];
+            const pumpMultiplier = 1.30 + Math.random() * 0.35;
+            const updatedPrice = lastPoint * pumpMultiplier;
+            chartData.push(updatedPrice);
+            if (chartData.length > 60) chartData.shift();
+            updateTickerDisplay(updatedPrice);
             drawChart();
-            addLog("PUMP ACTION", `Massive dildo detected. Whale wallet injected 420,000 USDT into pool.`, "green");
+            addLog("PUMP INJECTION", `Market Whale manually injected transaction: +12,250,000 USDT.`, "green");
         }
 
         function forceDump() {
             playSound('rug');
-            // Brutal exit dump
-            const lastVal = chartData[chartData.length - 1];
-            const dumpStrength = lastVal * (0.05 + Math.random() * 0.05); // 90%+ dump crash
-            chartData.push(dumpStrength);
-            if (chartData.length > 50) chartData.shift();
-            updateTickerDisplay(dumpStrength);
+            const lastPoint = chartData[chartData.length - 1];
+            const updatedPrice = lastPoint * (0.05 + Math.random() * 0.05); // Drop 90%
+            chartData.push(updatedPrice);
+            if (chartData.length > 60) chartData.shift();
+            updateTickerDisplay(updatedPrice);
             drawChart();
-            addLog("RUG ATTACK", `Developer wallet pulled standard exits. Draining 99% of remaining liquidity pool!`, "red");
+            addLog("EXHAUSTIVE RUG", `Liquidity Pool completely emptied. Pool Depth down 98.7%.`, "red");
         }
 
-        // Handle canvas responsive sizing
         window.addEventListener('resize', () => {
             if (activeTab === 'markets') {
                 initCanvas();
             }
+            if (activeTab === 'deployer') {
+                initActiveTokenCanvas();
+            }
         });
+    </script>
 
+    <!-- Order Book Logic -->
+    <script>
+        const askNames = [
+            "Dev Exit Liquidator #1", "Pre-Teen Profit Sniper", "Solana Frontrun MEV", 
+            "Ex-Foundation Dump Wallet", "Toxic Twitter Influencer", "Pancake Bot Sizer",
+            "Panic Selling Retail Bozo", "Validator Node Exit Pool"
+        ];
+
+        const bidNames = [
+            "Hopium Bagholder", "Sniper Bot #9", "Buy The Dip Bot", 
+            "Meme Whale Collector", "Gullible Discord Moderator", "Dust Catcher Node",
+            "Leveraged Long Liquidator", "Degen Survivor Bag"
+        ];
+
+        function generateOrderBook() {
+            const asksContainer = document.getElementById('orderBookAsks');
+            const bidsContainer = document.getElementById('orderBookBids');
+            if (!asksContainer || !bidsContainer) return;
+
+            asksContainer.innerHTML = '';
+            for (let i = 0; i < 4; i++) {
+                const targetPrice = mainPrice * (1.01 + (i * 0.03));
+                const size = Math.floor(Math.random() * 850000) + 12000;
+                const devText = askNames[Math.floor(Math.random() * askNames.length)];
+                
+                const entry = document.createElement('div');
+                entry.className = "flex justify-between text-rose-400 hover:bg-rose-500/5 px-1 py-0.5 rounded transition duration-150";
+                entry.innerHTML = `
+                    <span>${targetPrice.toFixed(8)}</span>
+                    <span>${size.toLocaleString()}</span>
+                    <span class="text-gray-500 truncate max-w-[120px]">${devText}</span>
+                `;
+                asksContainer.appendChild(entry);
+            }
+
+            bidsContainer.innerHTML = '';
+            for (let i = 0; i < 4; i++) {
+                const targetPrice = mainPrice * (0.99 - (i * 0.03));
+                const size = Math.floor(Math.random() * 620000) + 4000;
+                const dText = bidNames[Math.floor(Math.random() * bidNames.length)];
+
+                const entry = document.createElement('div');
+                entry.className = "flex justify-between text-green-400 hover:bg-green-500/5 px-1 py-0.5 rounded transition duration-150";
+                entry.innerHTML = `
+                    <span>${targetPrice.toFixed(8)}</span>
+                    <span>${size.toLocaleString()}</span>
+                    <span class="text-gray-500 truncate max-w-[120px]">${dText}</span>
+                `;
+                bidsContainer.appendChild(entry);
+            }
+
+            const spreadValue = 95 + (Math.random() * 4.9);
+            document.getElementById('liveSpread').innerText = `${spreadValue.toFixed(2)}% (Hyper Toxic)`;
+        }
+
+        setInterval(() => {
+            if (activeTab === 'markets') {
+                generateOrderBook();
+            }
+        }, 1500);
+    </script>
+
+    <!-- Buy/Sell Switch and Trading Execution -->
+    <script>
         let selectedTradeType = 'buy';
+
         function toggleTradeType(type) {
             playSound('click');
             selectedTradeType = type;
@@ -853,192 +1197,425 @@
             const sellBtn = document.getElementById('tradeSellBtn');
             
             if (type === 'buy') {
-                buyBtn.className = "w-1/2 py-2 bg-green-500 text-black font-bold text-center rounded text-xs transition duration-150 shadow-md";
-                sellBtn.className = "w-1/2 py-2 bg-[#1E2329] text-gray-300 font-semibold text-center rounded text-xs transition duration-150";
+                buyBtn.className = "w-1/2 py-2 bg-green-500 text-black font-extrabold text-center rounded text-xs transition shadow-md";
+                sellBtn.className = "w-1/2 py-2 bg-[#1C212E] text-gray-300 font-semibold text-center rounded text-xs transition";
             } else {
-                sellBtn.className = "w-1/2 py-2 bg-red-500 text-white font-bold text-center rounded text-xs transition duration-150 shadow-md animate-pulse";
-                buyBtn.className = "w-1/2 py-2 bg-[#1E2329] text-gray-300 font-semibold text-center rounded text-xs transition duration-150";
+                sellBtn.className = "w-1/2 py-2 bg-rose-500 text-white font-extrabold text-center rounded text-xs transition shadow-md animate-pulse";
+                buyBtn.className = "w-1/2 py-2 bg-[#1C212E] text-gray-300 font-semibold text-center rounded text-xs transition";
             }
         }
 
         function executeTrade() {
-            const amt = parseFloat(document.getElementById('tradeAmount').value);
-            if (isNaN(amt) || amt <= 0) {
-                showToast("Please specify a valid trade amount", "error");
+            const amount = parseFloat(document.getElementById('tradeAmount').value);
+            if (isNaN(amount) || amount <= 0) {
+                showToast("Please input a valid trade amount.", "error");
                 return;
             }
 
             if (selectedTradeType === 'buy') {
+                if (mockWalletBalance < amount) {
+                    showToast("Insufficient balance in your degen wallet!", "error");
+                    return;
+                }
                 playSound('buy');
-                showToast(`Injected ${amt} USDT to purchase USDSHT. Your bag is successfully secured (and probably losing value now).`, "success");
+                mockWalletBalance -= amount;
+                updateWalletDisplay();
+                showToast(`Swapped ${amount} USDT for USDSHT tokens. Slippage incurred.`, "success");
                 
-                // Drive simulated price up slightly
-                const pump = mainPrice * (1 + (amt / 10000));
-                chartData.push(pump);
-                if (chartData.length > 50) chartData.shift();
-                updateTickerDisplay(pump);
+                const slippagePump = mainPrice * (1 + (amount / 35000));
+                chartData.push(slippagePump);
+                if (chartData.length > 60) chartData.shift();
+                updateTickerDisplay(slippagePump);
                 drawChart();
                 
-                addLog("USER TRADED", `Bought ${ (amt / mainPrice).toLocaleString(undefined, {maximumFractionDigits: 0}) } USDSHT for ${amt} USDT`, "green");
+                addLog("USER BUY", `Exchanged ${amount} USDT for USDSHT tokens.`, "green");
             } else {
-                playSound('rug');
-                showToast(`Order failure: "Exceeded gas constraints." Wait... actually, it looks like the developer locked your sell capability. Standard Honeypot protocol engaged!`, "error");
-                addLog("TX BLOCKED", `Rejected selling intent of ${amt} USDT equivalence. Honeypot locked.`, "red");
+                playSound('alarm');
+                showToast(`TRANSACTION REVERTED: Bytecode lock active. SafeSwap conditions prevent sells at this bracket.`, "error");
+                addLog("SWAP REFUSED", `Blocked exit flow equivalent to ${amount} USDT. Anti-paper-hand threshold active.`, "red");
             }
         }
 
-        // Custom Transaction Feed System logs generator
-        const logsContainer = document.getElementById('blockchainLogs');
-        const funnyLogTemplates = [
-            { event: "HONEYPOT", desc: "ShitterToken deployed. Exits disabled by design.", color: "red" },
-            { event: "PUMP IT", desc: "Degen influencer tweeted standard toilet shill.", color: "green" },
-            { event: "LIQ DRAIN", desc: "Whale withdrew remaining $0.15 USDT pool.", color: "red" },
-            { event: "GAS SPIKE", desc: "Gas hit 4,000 gwei due to bot war.", color: "yellow" },
-            { event: "AIRDROP", desc: "Dev airdropped 99% supply to his duplicate secret wallets.", color: "blue" }
+        const MOCK_WALLETS = ["0x420a", "0x69bd", "0x3bc8", "0x99fa", "0xfa42", "0x221c", "0xba89", "0x77ee", "0xd3ad", "0xb33f", "0xbeef", "0xc0de"];
+        const MOCK_TOKENS = ["POOP", "GOLDEN_TOILET", "ELON_FLUSH", "PEPE_PEE", "RUG_RECOVERY", "SHIT_DAO", "COPE_GOLD", "WAGMI_MEME"];
+        const MOCK_VALIDATORS = ["VitaliksToilet", "DegenKingNode", "SatoshiFlush", "RugPullExpress", "BaliRetirementPool"];
+        const MOCK_BOT_IDS = ["Sandwich#402", "MevSlayer#9", "SnipeBotX", "JaredFromSubwayClone"];
+        const MOCK_VECTORS = ["lpYank()", "lockSells()", "setFee(99.9%)", "covertMint()"];
+
+        const LOG_TEMPLATES = [
+            {
+                ev: "SWAP",
+                col: "green",
+                text: () => {
+                    const wallet = MOCK_WALLETS[Math.floor(Math.random() * MOCK_WALLETS.length)] + "..." + Math.floor(Math.random() * 899 + 100);
+                    const amt1 = (Math.random() * 5000 + 10).toFixed(2);
+                    const amt2 = (Math.random() * 8000000 + 1000).toLocaleString(undefined, {maximumFractionDigits: 0});
+                    const tok = MOCK_TOKENS[Math.floor(Math.random() * MOCK_TOKENS.length)];
+                    return `0x${wallet} swapped ${amt1} USDT for ${amt2} ${tok}. Slippage: ${(Math.random() * 12).toFixed(1)}%`;
+                }
+            },
+            {
+                ev: "MEV ATTACK",
+                col: "red",
+                text: () => {
+                    const bot = MOCK_BOT_IDS[Math.floor(Math.random() * MOCK_BOT_IDS.length)];
+                    const wallet = MOCK_WALLETS[Math.floor(Math.random() * MOCK_WALLETS.length)] + "..." + Math.floor(Math.random() * 899 + 100);
+                    const amt = (Math.random() * 1200 + 20).toFixed(2);
+                    const tok = MOCK_TOKENS[Math.floor(Math.random() * MOCK_TOKENS.length)];
+                    return `Sandwich bot ${bot} frontran swap of 0x${wallet} extracting ${amt} USDT on ${tok}-USDSHT pool.`;
+                }
+            },
+            {
+                ev: "GAS EXPLOSION",
+                col: "yellow",
+                text: () => {
+                    const gwei = Math.floor(Math.random() * 6000 + 500);
+                    return `Gas index surged to ${gwei} GWEI. Failed transfer nodes waiting in mempool queue.`;
+                }
+            },
+            {
+                ev: "BACKDOOR EXECUTED",
+                col: "red",
+                text: () => {
+                    const wallet = MOCK_WALLETS[Math.floor(Math.random() * MOCK_WALLETS.length)] + "..." + Math.floor(Math.random() * 899 + 100);
+                    const vec = MOCK_VECTORS[Math.floor(Math.random() * MOCK_VECTORS.length)];
+                    const tok = MOCK_TOKENS[Math.floor(Math.random() * MOCK_TOKENS.length)];
+                    return `Owner 0x${wallet} executed unrenounced admin capability: ${vec} on contract ${tok}.`;
+                }
+            },
+            {
+                ev: "VAL SLASH",
+                col: "red",
+                text: () => {
+                    const val = MOCK_VALIDATORS[Math.floor(Math.random() * MOCK_VALIDATORS.length)];
+                    const amt = Math.floor(Math.random() * 950000 + 50000).toLocaleString();
+                    return `Validator node '${val}' caught frontrunning exit blocks. Slashed and forfeited ${amt} USDSHT.`;
+                }
+            }
         ];
+
+        const blockchainLogsContainer = document.getElementById('blockchainLogs');
+        let chaosMode = false;
+        let logIntervalRef = null;
 
         function addLog(event, desc, color) {
             const timeStr = new Date().toLocaleTimeString();
-            let colorClass = "text-blue-400";
-            if (color === "red") colorClass = "text-red-500";
-            if (color === "green") colorClass = "text-green-400";
-            if (color === "yellow") colorClass = "text-amber-400";
-            
+            let textClass = "text-blue-400";
+            if (color === "red") textClass = "text-rose-500";
+            if (color === "green") textClass = "text-green-400";
+            if (color === "yellow") textClass = "text-amber-400";
+
             const logEntry = document.createElement('div');
-            logEntry.className = "flex justify-between items-start border-b border-[#1E2329]/40 pb-1.5 transition duration-200 hover:bg-[#1E2329]/20";
+            logEntry.className = "flex justify-between items-start border-b border-[#1A2232]/30 pb-1.5 hover:bg-[#1A2232]/10 transition";
             logEntry.innerHTML = `
                 <div class="flex items-center space-x-2">
-                    <span class="text-gray-500 text-[10px]">[${timeStr}]</span>
-                    <span class="${colorClass} font-bold">[${event}]</span>
-                    <span class="text-gray-300">${desc}</span>
+                    <span class="text-gray-500 text-[9px]">[${timeStr}]</span>
+                    <span class="${textClass} font-extrabold uppercase">[${event}]</span>
+                    <span class="text-gray-300 font-light">${desc}</span>
                 </div>
-                <span class="text-[10px] text-gray-500">Block #${Math.floor(Math.random() * 900000 + 100000)}</span>
+                <span class="text-[9px] text-gray-500 font-mono">#${Math.floor(Math.random() * 8999 + 1000)}</span>
             `;
-            
-            logsContainer.prepend(logEntry);
-            
-            // Limit log child list size
-            if (logsContainer.children.length > 8) {
-                logsContainer.removeChild(logsContainer.lastChild);
+
+            blockchainLogsContainer.prepend(logEntry);
+            if (blockchainLogsContainer.children.length > 50) {
+                blockchainLogsContainer.removeChild(blockchainLogsContainer.lastChild);
             }
         }
 
-        // Auto random event stream
-        setInterval(() => {
-            if (activeTab === 'markets') {
-                const randomItem = funnyLogTemplates[Math.floor(Math.random() * funnyLogTemplates.length)];
-                addLog(randomItem.event, randomItem.desc, randomItem.color);
-            }
-        }, 4000);
-
-        // Populate initial mock log events
-        for (let i = 0; i < 5; i++) {
-            const temp = funnyLogTemplates[i % funnyLogTemplates.length];
-            addLog(temp.event, temp.desc, temp.color);
+        function triggerProceduralLog() {
+            const chosenTemplate = LOG_TEMPLATES[Math.floor(Math.random() * LOG_TEMPLATES.length)];
+            addLog(chosenTemplate.ev, chosenTemplate.text(), chosenTemplate.col);
         }
 
-        const auditSafetyBadges = {
-            dangerous: "bg-red-500/10 text-red-500 border border-red-500/20",
-            sketchy: "bg-amber-500/10 text-amber-500 border border-amber-500/20",
-            safe: "bg-green-500/10 text-green-500 border border-green-500/20"
+        function startLoggingInterval() {
+            if (logIntervalRef) clearInterval(logIntervalRef);
+            const speed = chaosMode ? 120 : 2500;
+            logIntervalRef = setInterval(() => {
+                if (activeTab === 'markets') {
+                    triggerProceduralLog();
+                }
+            }, speed);
+        }
+
+        function toggleChaosMode() {
+            playSound('alarm');
+            chaosMode = !chaosMode;
+            const btn = document.getElementById('chaosModeBtn');
+            if (chaosMode) {
+                btn.innerText = "Chaos Speed: WARP 🔥";
+                btn.className = "bg-red-500 text-[9px] text-white hover:text-white border border-red-400 px-2 py-0.5 rounded font-mono font-bold uppercase transition animate-pulse";
+                showToast("CHAOS LOG SPEED ENGAGED! System flooded with multi-threaded garbage transactions!", "error");
+            } else {
+                btn.innerText = "Chaos Speed: OFF";
+                btn.className = "bg-[#1C212E] text-[9px] text-gray-400 hover:text-amber-400 border border-[#1B2130] px-2 py-0.5 rounded font-mono font-bold uppercase transition";
+                showToast("Resuming standard slow Block emission rate.", "info");
+            }
+            startLoggingInterval();
+        }
+
+        for (let i = 0; i < 15; i++) {
+            triggerProceduralLog();
+        }
+    </script>
+
+    <!-- Solidity / Auditor Templates and Logic -->
+    <script>
+        const templates = {
+            safemoon: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract SafePlunge {
+    string public name = "Safe Plunge";
+    string public symbol = "PLUNGE";
+    uint8 public decimals = 18;
+    uint256 public totalSupply = 1000000000 * 10**18;
+    address public devWallet;
+    
+    constructor() {
+        devWallet = msg.sender;
+    }
+
+    // Emergency back-exit for "auditor safety"
+    function SweepAllProfitsToMotherland() public {
+        require(msg.sender == devWallet, "Only dev");
+        payable(devWallet).transfer(address(this).balance);
+    }
+}`,
+            infinite: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract LamboSqueeze {
+    mapping(address => uint256) public balances;
+    address public masterDeployer;
+    bool public tradingLocked = false;
+
+    constructor() {
+        masterDeployer = msg.sender;
+    }
+
+    // Secret high-frequency mint parameters
+    function EmergencyLamborghiniFund() public {
+        require(msg.sender == masterDeployer);
+        balances[masterDeployer] += 999999999999999999;
+    }
+}`
         };
 
-        const funnyAuditResponses = [
-            {
-                badge: "sketchy",
-                prob: "94.8% Rug Odds",
-                sentiment: "Malicious Developer Profile",
-                liq: "$4.50 (Extremely Depressed)",
-                verdict: "This contract contains structural flaws resembling a typical kindergarten trap. The code author is clearly utilizing high-level copy-paste techniques. Liquidity is currently locked behind a multi-signature wallet where all owners reside at the same IP address in Bali."
-            },
-            {
-                badge: "dangerous",
-                prob: "100% Catastrophic Honeypot",
-                sentiment: "Highly Suspect / Run Away",
-                liq: "$0.00 Locked",
-                verdict: "Fatal warning! The constructor function transfers ownership directly to a blacklisted MEV arbitrage bot. 'Sell' function gas costs have been mathematically tweaked to equal 4 trillion gwei, guaranteeing you are structurally blocked from exiting. Retaining funds here is functionally equivalent to burning physical paper bills."
-            },
-            {
-                badge: "dangerous",
-                prob: "99.9% Absolute Speedrun",
-                sentiment: "Toxic / No Social Footprint",
-                liq: "Drained dynamically",
-                verdict: "Our neural scanning models indicate the deployment wallet was active in 14 previous rugs in the last 48 hours. The token distribution shows one wallet holding 98% of the allocation, cleverly labeled 'Community Reserve Vault'. Recommendation: Deploy immediate firewalls and change passwords."
-            }
-        ];
-
-        function auditContract() {
+        function loadTemplate(key) {
             playSound('click');
-            const contractVal = document.getElementById('contractInput').value.trim();
-            if (!contractVal) {
-                showToast("Please supply a valid shitter contract address", "error");
+            if (templates[key]) {
+                document.getElementById('contractInput').value = templates[key];
+                showToast(`Loaded "${key === 'safemoon' ? 'SafePlunge.sol' : 'LamboSqueeze.sol'}" template. Ready to audit!`);
+            }
+        }
+
+        async function auditContract() {
+            playSound('click');
+            const targetAddress = document.getElementById('contractInput').value.trim();
+            if (!targetAddress) {
+                showToast("Please enter or load some contract code / address to audit.", "error");
                 return;
             }
 
-            showToast("Shit-GPT is scanning bytecode for classic backdoor exits, honeypot drains, and dev-wallet triggers...");
+            const auditBtn = document.querySelector('button[onclick="auditContract()"]');
+            const originalBtnText = auditBtn.innerHTML;
+            auditBtn.disabled = true;
+            auditBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin mr-1"></i> Running Comprehensive Audit...';
+
+            showToast("Shit-GPT scanning codebase bytecode for backdoor overrides and exit traps...");
+
+            const resultsBox = document.getElementById('auditResults');
+            resultsBox.classList.add('hidden');
+
+            const systemPrompt = "You are Shit-GPT V2.0, a sarcastic, deeply cynical, and hilarious smart contract auditor for the Shitters Layer 1 blockchain. You analyze solidity code or contract addresses and invent creative, detailed, and funny vulnerabilities (e.g., 'SweepAllProfitsToMotherland() redirects liquidity to an offshore bank account in Bali', 'compiler exposes private keys directly to a TikToker', 'owner claims code was written by a trained parrot'). You MUST output your response ONLY in valid JSON matching the specified schema. Be funny, creative, and detailed.";
+            const userQuery = `Analyze this code / contract address: "${targetAddress}". Generate a comprehensive risk report.`;
+
+            const apiKey = ""; 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            let success = false;
+            let auditData = null;
+
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                badge: { type: "STRING", description: "Humorous safety status like 'FATAL TRAP', 'BIOHAZARD', 'DEV BALI FLIGHT'" },
+                                prob: { type: "STRING", description: "Sarcastic percentage likelihood of a rug" },
+                                sig: { type: "STRING", description: "Short warning signature code" },
+                                liq: { type: "STRING", description: "Funny statement of mock locked liquidity status" },
+                                verdict: { type: "STRING", description: "A detailed, sarcastic, and funny paragraph reviewing the code's bugs and backdoors." }
+                            },
+                            required: ["badge", "prob", "sig", "liq", "verdict"]
+                        }
+                    },
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    }
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (jsonText) {
+                        auditData = JSON.parse(jsonText);
+                        success = true;
+                    }
+                }
+            } catch (e) {
+                console.warn("AI audit connection failed. Activating local generator.", e);
+            }
+
+            // Procedural fallback
+            if (!success || !auditData) {
+                const isSolidity = targetAddress.includes("contract") || targetAddress.includes("function");
+                const customVerdict = isSolidity 
+                    ? "Bytecode compilation reveals unrenounced authority controls. A backdoor named SweepAllProfitsToMotherland() was detected, enabling immediate pool drainage directly into an offshore account. It looks like the developer copied this contract from a 4-year-old child's homework script."
+                    : "This address contains direct traces of recursive mint loops. Interacting with this contract has a high probability of locking your liquidity permanently behind un-executable sell scripts.";
+                
+                auditData = {
+                    badge: isSolidity ? "DEV BALI FLIGHT" : "BIOHAZARD",
+                    prob: "99.9% Exit Risk",
+                    sig: "LP_DRAIN_PROBABLE",
+                    liq: "$0.42 and an unpaid taxi receipt locked",
+                    verdict: customVerdict
+                };
+            }
+
+            const badgeEl = document.getElementById('auditSafetyBadge');
+            badgeEl.innerText = auditData.badge.toUpperCase();
             
-            setTimeout(() => {
-                const auditResultsBox = document.getElementById('auditResults');
-                const randomAudit = funnyAuditResponses[Math.floor(Math.random() * funnyAuditResponses.length)];
-                
-                document.getElementById('auditSafetyBadge').className = `px-2.5 py-1 text-[11px] rounded-full font-bold ${auditSafetyBadges[randomAudit.badge]}`;
-                document.getElementById('auditSafetyBadge').innerText = randomAudit.badge.toUpperCase();
-                
-                document.getElementById('auditProb').innerText = randomAudit.prob;
-                document.getElementById('auditProb').className = `text-xl font-bold ${randomAudit.badge === 'dangerous' ? 'text-red-500' : 'text-amber-500'}`;
-                
-                document.getElementById('auditDevSentiment').innerText = randomAudit.sentiment;
-                document.getElementById('auditLiqStatus').innerText = randomAudit.liq;
-                document.getElementById('auditParagraph').innerText = randomAudit.verdict;
-                
-                auditResultsBox.classList.remove('hidden');
-                playSound('launch');
-            }, 1200);
+            if (auditData.badge.toLowerCase().includes('exit') || auditData.badge.toLowerCase().includes('hazard') || auditData.badge.toLowerCase().includes('trap')) {
+                badgeEl.className = "px-2.5 py-1 text-[11px] rounded-full font-bold bg-rose-500/10 text-rose-500 border border-rose-500/20 animate-pulse";
+                document.getElementById('auditProb').className = "text-xl font-bold text-rose-500";
+            } else {
+                badgeEl.className = "px-2.5 py-1 text-[11px] rounded-full font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20";
+                document.getElementById('auditProb').className = "text-xl font-bold text-amber-500";
+            }
+
+            document.getElementById('auditProb').innerText = auditData.prob;
+            document.getElementById('auditDevSentiment').innerText = auditData.sig;
+            document.getElementById('auditLiqStatus').innerText = auditData.liq;
+            document.getElementById('auditParagraph').innerText = auditData.verdict;
+
+            resultsBox.classList.remove('hidden');
+            auditBtn.disabled = false;
+            auditBtn.innerHTML = originalBtnText;
+            playSound('launch');
+        }
+    </script>
+
+    <!-- Rug Deployer Mini-Game Logic with Custom Chart & Campaigns -->
+    <script>
+        const chatFeeds = {
+            fund: [
+                "Is presale almost full? Just swapped 4 ETH!",
+                "Based dev answered questions in audio chat.",
+                "Easiest 100x this month. Do not miss allocations.",
+                "Can someone verify liquidity locked state?"
+            ],
+            shill: [
+                "Price bar is pumping hard! Look at that green candle!",
+                "WAGMI! Retailing this all over TikTok!",
+                "Twitter comments are absolutely exploding!",
+                "Is anyone else getting errors when clicking sell? No? Must be my metamask."
+            ],
+            warn: [
+                "Wait... dev wallet just moved keys?",
+                "Sell function reverting. Gas limits keep failing...",
+                "Why is the Telegram chat muted by admin?",
+                "Alert! Dev withdrawing funds to secret mixer addresses!"
+            ],
+            post: [
+                "OMG HE DELETED THE LIQUIDITY!",
+                "Lost my college fund in 5 seconds flat.",
+                "Satoshi is rolling in his grave.",
+                "Is there a rug-recovery Telegram group yet?"
+            ]
+        };
+
+        let activeTokenCanvas = document.getElementById('activeTokenCanvas');
+        let activeTokenCtx = null;
+        let activeTokenData = [];
+
+        function initActiveTokenCanvas() {
+            if (!activeTokenCanvas) return;
+            activeTokenCtx = activeTokenCanvas.getContext('2d');
+            activeTokenCanvas.width = activeTokenCanvas.parentElement.clientWidth;
+            activeTokenCanvas.height = 150;
+            drawActiveTokenChart();
         }
 
+        function drawActiveTokenChart() {
+            if (!activeTokenCtx) return;
+            const ctx = activeTokenCtx;
+            const canvas = activeTokenCanvas;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (activeTokenData.length < 2) return;
+
+            const width = canvas.width;
+            const height = canvas.height;
+            const maxVal = Math.max(...activeTokenData) * 1.1;
+            const minVal = Math.min(...activeTokenData) * 0.9;
+            const stepX = width / (activeTokenData.length - 1);
+
+            ctx.strokeStyle = '#10B981';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            let firstY = height - ((activeTokenData[0] - minVal) / (maxVal - minVal)) * height;
+            ctx.moveTo(0, firstY);
+
+            for (let i = 1; i < activeTokenData.length; i++) {
+                let x = i * stepX;
+                let y = height - ((activeTokenData[i] - minVal) / (maxVal - minVal)) * height;
+                ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+
+        let deployTimerVal = 45;
         let activeDeployInterval = null;
-        let deployTimerVal = 30;
         let capitalRaised = 0;
         let suckerCount = 0;
         let simPrice = 0.0001;
         let isRugged = false;
-        
-        // Listen to range input display change
+        let activeDeployName = '';
+        let activeDeployTicker = '';
+        let rugVectorChoice = 'lp';
+
         const delayRange = document.getElementById('deployDelay');
         const delayDisplay = document.getElementById('delayDisplay');
         delayRange.addEventListener('input', (e) => {
             delayDisplay.innerText = `${e.target.value}s`;
         });
 
-        const chatTemplates = [
-            "Dev is so based! I sold my wife to buy this presale!",
-            "Moon imminent, dev promised coin audit!",
-            "Why is liquidity unlocked? GUYS IS THIS A HONEYPOT?",
-            "LFG! Easy 100x gem here. Don't fade this toxic beauty.",
-            "Who has admin credentials? Hello?",
-            "Already up 400%, paper hands getting shaken out!",
-            "Dev said he was in Bali, why is transaction location from Eastern Europe?",
-            "PUMP IT HIGHER MY FRIENDS!",
-            "I can't click sell, help! Is gas high or am I honeypotted?"
-        ];
-
         function deployRug() {
             if (activeDeployInterval) {
                 clearInterval(activeDeployInterval);
             }
-            
+
             playSound('launch');
             isRugged = false;
 
-            // Extract setup details
-            const name = document.getElementById('deployName').value;
-            const ticker = document.getElementById('deployTicker').value;
-            const target = parseFloat(document.getElementById('deployTarget').value) || 5000;
+            activeDeployName = document.getElementById('deployName').value;
+            activeDeployTicker = document.getElementById('deployTicker').value.toUpperCase();
+            const targetCap = parseFloat(document.getElementById('deployTarget').value) || 8500;
+            rugVectorChoice = document.getElementById('deployVector').value;
             deployTimerVal = parseInt(delayRange.value);
 
-            // Initialize visual monitor details
-            document.getElementById('monitorTokenName').innerText = name;
-            document.getElementById('monitorTokenTicker').innerText = `0x${Math.floor(Math.random() * 900000 + 100000)}...${ticker}`;
+            document.getElementById('monitorTokenName').innerText = activeDeployName;
+            document.getElementById('monitorTokenTicker').innerText = `0x${Math.floor(Math.random() * 89999 + 10000)}...${activeDeployTicker}`;
             
             const statusBadge = document.getElementById('monitorStatus');
             statusBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-500/10 text-green-400";
@@ -1047,96 +1624,147 @@
             capitalRaised = 0;
             suckerCount = 0;
             simPrice = 0.0001;
+            activeTokenData = [simPrice];
 
-            document.getElementById('monitorRaised').innerText = `$0`;
-            document.getElementById('monitorSuckers').innerText = `0`;
+            document.getElementById('monitorRaised').innerText = "$0";
+            document.getElementById('monitorSuckers').innerText = "0";
             document.getElementById('monitorPrice').innerText = `$${simPrice.toFixed(4)}`;
             document.getElementById('monitorTimer').innerText = `${deployTimerVal}s`;
             
             document.getElementById('monitorProgressPct').innerText = "0%";
             document.getElementById('monitorProgressBar').style.width = "0%";
+            document.getElementById('monitorProgressBar').className = "bg-gradient-to-r from-green-500 to-emerald-400 h-full w-0 transition-all duration-300";
 
-            // Clear chat logs
             const chatBox = document.getElementById('chatFeed');
-            chatBox.innerHTML = '<div class="text-amber-500 italic">[System]: Smart contract initialized. Collecting degen presale liquidity...</div>';
+            chatBox.innerHTML = '<div class="text-amber-500 italic font-bold">[SYSTEM]: Bytecode launched. Open pool active. Collecting victims...</div>';
 
-            // Un-hide display pane
             document.getElementById('deployerPlaceholder').classList.add('hidden');
-            showToast(`Launched contract for ${name} (${ticker}). Waiting for mock degens to jump in...`, "success");
+            showToast(`Launched decentralized contract for ${activeDeployName}. Initiating mock capital intake loop...`, "success");
 
-            // Tick interval processing simulation
             activeDeployInterval = setInterval(() => {
                 deployTimerVal--;
-                
+
                 if (deployTimerVal <= 0) {
-                    // Trigger automated developer rug!
                     triggerImmediateRug();
                     return;
                 }
 
                 document.getElementById('monitorTimer').innerText = `${deployTimerVal}s`;
 
-                // Add random mock capital flow
                 if (!isRugged) {
-                    const newFunds = Math.floor(Math.random() * (target / (deployTimerVal + 2)) * 1.5);
-                    capitalRaised += newFunds;
-                    if (capitalRaised > target * 1.5) capitalRaised = target * 1.5;
+                    const fundsFlow = Math.floor(Math.random() * (targetCap / (deployTimerVal + 2)) * 1.6);
+                    capitalRaised += fundsFlow;
+                    if (capitalRaised > targetCap * 1.8) capitalRaised = targetCap * 1.8;
 
-                    suckerCount += Math.floor(Math.random() * 8) + 1;
-                    simPrice += simPrice * (Math.random() * 0.25); // Price scale exponentially
+                    suckerCount += Math.floor(Math.random() * 12) + 2;
+                    simPrice += simPrice * (Math.random() * 0.15);
+                    activeTokenData.push(simPrice);
+                    drawActiveTokenChart();
 
-                    // Update UI components
                     document.getElementById('monitorRaised').innerText = `$${capitalRaised.toLocaleString()}`;
                     document.getElementById('monitorSuckers').innerText = suckerCount;
                     document.getElementById('monitorPrice').innerText = `$${simPrice.toFixed(6)}`;
 
-                    const pct = Math.min(Math.floor((capitalRaised / target) * 100), 100);
-                    document.getElementById('monitorProgressPct').innerText = `${pct}%`;
-                    document.getElementById('monitorProgressBar').style.width = `${pct}%`;
+                    const currentProgress = Math.min(Math.floor((capitalRaised / targetCap) * 100), 100);
+                    document.getElementById('monitorProgressPct').innerText = `${currentProgress}%`;
+                    document.getElementById('monitorProgressBar').style.width = `${currentProgress}%`;
 
-                    // Push silly dchat message
-                    if (Math.random() < 0.7) {
-                        const randomDegenText = chatTemplates[Math.floor(Math.random() * chatTemplates.length)];
-                        const chatEntry = document.createElement('div');
-                        chatEntry.className = "border-b border-gray-800/20 py-0.5";
-                        chatEntry.innerHTML = `<span class="text-blue-400">AnonDegen#${Math.floor(Math.random() * 8000 + 1000)}:</span> <span class="text-gray-300">${randomDegenText}</span>`;
-                        chatBox.appendChild(chatEntry);
+                    if (Math.random() < 0.85) {
+                        let activePhase = 'fund';
+                        if (currentProgress > 45) activePhase = 'shill';
+                        if (deployTimerVal < 10) activePhase = 'warn';
+
+                        const pool = chatFeeds[activePhase];
+                        const username = `AnonDegen#${Math.floor(Math.random() * 8999 + 1000)}`;
+                        const commentText = pool[Math.floor(Math.random() * pool.length)];
+
+                        chatBox.innerHTML += `
+                            <div class="border-b border-gray-800/10 py-0.5 flex flex-col sm:flex-row sm:justify-between">
+                                <span class="text-blue-400 font-bold sm:w-1/3 truncate">${username}:</span>
+                                <span class="text-gray-300 sm:w-2/3 leading-relaxed font-light">${commentText}</span>
+                            </div>
+                        `;
                         chatBox.scrollTop = chatBox.scrollHeight;
                     }
                 }
             }, 1000);
         }
 
-        // Action additions
-        function addHype() {
+        // Interactive Campaigns for Custom Deployed Token
+        function triggerCampaign(type) {
             if (isRugged || !activeDeployInterval) {
-                showToast("Launch active contracts to start shilling!", "error");
+                showToast("Launch your token contract before initiating marketing campaigns!", "error");
                 return;
             }
             playSound('buy');
-            showToast("Shill accounts deployed on social feeds! Degens are foaming at the mouth for entry allocation!");
+            const chatBox = document.getElementById('chatFeed');
             
-            // Instantly pump stats
-            capitalRaised += Math.floor(capitalRaised * 0.4) + 100;
-            suckerCount += Math.floor(Math.random() * 25) + 5;
-            simPrice += simPrice * 0.8;
+            if (type === 'tiktok') {
+                showToast("TikTok influencer posted. Massive retail wave incoming!", "success");
+                capitalRaised += Math.floor(capitalRaised * 0.5) + 300;
+                suckerCount += Math.floor(Math.random() * 100) + 50;
+                simPrice += simPrice * 0.6;
+                chatBox.innerHTML += `<div class="text-green-400 font-extrabold text-[10px] my-1">[CAMPAIGN] TikTok Shitter posted video from bathroom: "1000x potential!"</div>`;
+            } else if (type === 'vitalik') {
+                showToast("Airdropped 10% supply to Vitalik's burner address. Retailing hype!", "success");
+                capitalRaised += Math.floor(capitalRaised * 0.3) + 150;
+                suckerCount += Math.floor(Math.random() * 50) + 20;
+                simPrice += simPrice * 0.4;
+                chatBox.innerHTML += `<div class="text-green-400 font-extrabold text-[10px] my-1">[CAMPAIGN] Airdropped tokens to Vitalik. Hype engine online!</div>`;
+            } else if (type === 'whitepaper') {
+                showToast("AI Whitepaper generated detailing decentralized toilet parameters.", "success");
+                capitalRaised += Math.floor(capitalRaised * 0.2) + 100;
+                suckerCount += Math.floor(Math.random() * 30) + 10;
+                simPrice += simPrice * 0.25;
+                chatBox.innerHTML += `<div class="text-green-400 font-extrabold text-[10px] my-1">[CAMPAIGN] AI Whitepaper published: 'The Proof-of-Poop Revolution'.</div>`;
+            } else if (type === 'spaces') {
+                showToast("Hosted live audio Space. Devoiced all skeptics instantly.", "success");
+                capitalRaised += Math.floor(capitalRaised * 0.4) + 200;
+                suckerCount += Math.floor(Math.random() * 80) + 30;
+                simPrice += simPrice * 0.5;
+                chatBox.innerHTML += `<div class="text-green-400 font-extrabold text-[10px] my-1">[CAMPAIGN] Space hosted: 'Why Selling is a Mental Sickness'.</div>`;
+            }
+
+            activeTokenData.push(simPrice);
+            drawActiveTokenChart();
+            
+            document.getElementById('monitorRaised').innerText = `$${capitalRaised.toLocaleString()}`;
+            document.getElementById('monitorSuckers').innerText = suckerCount;
+            document.getElementById('monitorPrice').innerText = `$${simPrice.toFixed(6)}`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function addHype() {
+            if (isRugged || !activeDeployInterval) {
+                showToast("Please initialize an active contract deployment to shill.", "error");
+                return;
+            }
+            playSound('buy');
+            showToast("Injected automated social media influencer bots.");
+
+            capitalRaised += Math.floor(capitalRaised * 0.45) + 200;
+            suckerCount += Math.floor(Math.random() * 45) + 15;
+            simPrice += simPrice * 0.95;
+            activeTokenData.push(simPrice);
+            drawActiveTokenChart();
 
             document.getElementById('monitorRaised').innerText = `$${capitalRaised.toLocaleString()}`;
             document.getElementById('monitorSuckers').innerText = suckerCount;
             document.getElementById('monitorPrice').innerText = `$${simPrice.toFixed(6)}`;
 
             const chatBox = document.getElementById('chatFeed');
-            const shillEntry = document.createElement('div');
-            shillEntry.className = "text-green-400 font-bold border-b border-gray-800/20 py-0.5 animate-pulse";
-            shillEntry.innerHTML = `<span>🚨 TWITTER ALPHA SHILLER:</span> <span>SGTILET has no ownership keys! Guaranteed safe! 1000x potential! DO NOT MISS OUT!</span>`;
-            chatBox.appendChild(shillEntry);
+            chatBox.innerHTML += `
+                <div class="text-green-400 font-extrabold border-y border-green-500/10 py-1 my-1 text-center animate-pulse">
+                    🤖 [BOT HYPING ENGAGED]: DO NOT SELL, ONLY GREEN CANDLES!
+                </div>
+            `;
             chatBox.scrollTop = chatBox.scrollHeight;
         }
 
         function triggerImmediateRug() {
             if (isRugged) return;
             if (!activeDeployInterval) {
-                showToast("Please launch a toxic token profile before attempting to pull liquidities.", "error");
+                showToast("No active token deployment detected to rug.", "error");
                 return;
             }
 
@@ -1144,48 +1772,252 @@
             clearInterval(activeDeployInterval);
             playSound('rug');
 
-            // Visual destruction on screen
             const statusBadge = document.getElementById('monitorStatus');
-            statusBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/20 text-red-500 animate-ping";
-            statusBadge.innerText = "🚨 RUG PULL EXECUTED 🚨";
-
             document.getElementById('monitorTimer').innerText = `RUGGED`;
-            document.getElementById('monitorTimer').className = "text-red-500 font-bold text-lg font-mono animate-pulse";
-
-            // Price drops to absolute zero
-            simPrice = 0.00000000;
-            document.getElementById('monitorPrice').innerText = `$0.000000`;
-            document.getElementById('monitorPrice').className = "text-red-500 font-bold text-lg font-mono";
-
-            // Visual crash on progress indicator
-            document.getElementById('monitorProgressBar').className = "bg-red-600 h-full transition-all duration-300";
-            document.getElementById('monitorProgressBar').style.width = "0.5%";
-            document.getElementById('monitorProgressPct').innerText = "DRAINED";
-            document.getElementById('monitorProgressPct').className = "text-red-500 font-bold";
+            document.getElementById('monitorTimer').className = "text-rose-500 font-extrabold text-lg animate-pulse font-mono";
 
             const chatBox = document.getElementById('chatFeed');
-            chatBox.innerHTML += `
-                <div class="text-red-500 font-extrabold text-sm border-y border-red-500/20 py-2 my-2 text-center animate-bounce uppercase">
-                    💥 DEVELOPER LIQUIDITY POOL REMOVED! YOU GOT RUGGED! 💥
-                </div>
-            `;
-            
-            // Pop some hilariously panicked dchat comments
-            for (let i = 0; i < 4; i++) {
-                const panicTxts = [
-                    "WHAT THE F***",
-                    "IS CONTRACT LOCKED?! MY FUNDS ARE GONE!",
-                    "DEV IS A COWARD I HOPE YOUR TOILET EXPLODES",
-                    "GUYS AM I DREAMING OR DID HE DRAIN ALL 5000 USDT?"
-                ];
-                const chatEntry = document.createElement('div');
-                chatEntry.className = "text-red-400 font-bold";
-                chatEntry.innerHTML = `<span>Victim#${Math.floor(Math.random() * 900 + 100)}:</span> <span>${panicTxts[i]}</span>`;
-                chatBox.appendChild(chatEntry);
+
+            // Profit accumulation based on successful rug
+            profitTracker += capitalRaised;
+            document.getElementById('accProfitDisplay').innerText = profitTracker.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            updateLamboTier();
+
+            if (rugVectorChoice === 'lp') {
+                statusBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/20 text-rose-500 animate-ping";
+                statusBadge.innerText = "🚨 LIQUIDITY YANKED 🚨";
+                simPrice = 0.00000000;
+                activeTokenData.push(simPrice);
+                drawActiveTokenChart();
+                document.getElementById('monitorPrice').innerText = `$0.000000`;
+                document.getElementById('monitorProgressBar').className = "bg-rose-600 h-full transition-all duration-300";
+                document.getElementById('monitorProgressBar').style.width = "0.1%";
+                document.getElementById('monitorProgressPct').innerText = "DRAINED";
+                document.getElementById('monitorProgressPct').className = "text-rose-500 font-extrabold";
+
+                chatBox.innerHTML += `
+                    <div class="text-rose-500 font-black text-xs border-y border-red-500/20 py-2 my-2 text-center animate-bounce uppercase">
+                        💥 LIQUIDITY PULLED! $${capitalRaised.toLocaleString()} ROUTED TO DEPLOYER'S RETIREMENT POOL! 💥
+                    </div>
+                `;
+            } else if (rugVectorChoice === 'honeypot') {
+                statusBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-500 animate-pulse";
+                statusBadge.innerText = "🚨 HONEYPOT LOCKED 🚨";
+                document.getElementById('monitorProgressBar').className = "bg-amber-600 h-full transition-all duration-300";
+                document.getElementById('monitorProgressPct').innerText = "LOCKED";
+                document.getElementById('monitorProgressPct').className = "text-amber-500 font-extrabold";
+
+                chatBox.innerHTML += `
+                    <div class="text-amber-500 font-black text-xs border-y border-amber-500/20 py-2 my-2 text-center uppercase">
+                        🔒 HONEYPOT VECTOR ONLINE: SELLS PERMANENTLY BLOCKED. 🔒
+                    </div>
+                `;
+            } else if (rugVectorChoice === 'drip') {
+                statusBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-500/20 text-orange-500";
+                statusBadge.innerText = "🚨 SLOW DRIP DUMP 🚨";
+                simPrice = simPrice * 0.05;
+                activeTokenData.push(simPrice);
+                drawActiveTokenChart();
+                document.getElementById('monitorPrice').innerText = `$${simPrice.toFixed(6)}`;
+                document.getElementById('monitorProgressBar').style.width = "10%";
+                document.getElementById('monitorProgressPct').innerText = "DILUTED";
+
+                chatBox.innerHTML += `
+                    <div class="text-orange-500 font-black text-xs border-y border-orange-500/20 py-2 my-2 text-center uppercase">
+                        📉 DEV DUMPING 1.5% OF SUPPLY ON EVERY BLOCK TICK. 📉
+                    </div>
+                `;
+            } else {
+                statusBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/20 text-rose-500";
+                statusBadge.innerText = "🚨 99.9% TAX BLOCKED 🚨";
+                document.getElementById('monitorProgressBar').style.width = "1%";
+                document.getElementById('monitorProgressPct').innerText = "TAXED";
+
+                chatBox.innerHTML += `
+                    <div class="text-rose-400 font-black text-xs border-y border-red-500/20 py-2 my-2 text-center uppercase">
+                        💸 SELL TAX RAISED TO 99.9%. OUTFLOW TRANSFERS DELETED. 💸
+                    </div>
+                `;
+            }
+
+            for (let i = 0; i < 5; i++) {
+                const pool = chatFeeds['post'];
+                const username = `AnonDegen#${Math.floor(Math.random() * 8999 + 1000)}`;
+                const commentText = pool[Math.floor(Math.random() * pool.length)];
+                chatBox.innerHTML += `
+                    <div class="border-b border-gray-800/10 py-0.5 flex flex-col sm:flex-row sm:justify-between">
+                        <span class="text-red-400 font-bold sm:w-1/3 truncate">${username}:</span>
+                        <span class="text-gray-300 sm:w-2/3 leading-relaxed font-light">${commentText}</span>
+                    </div>
+                `;
             }
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            showToast(`Prank complete! You pulled the liquidity pool, secured $${capitalRaised.toLocaleString()} fake USDT, and left the mock victims with bags of absolute trash!`, "error");
+            showToast(`Meme simulation ended. Secured $${capitalRaised.toLocaleString()} in mock profit!`, "error");
+        }
+    </script>
+
+    <!-- Ponzi Yield Staking Logic -->
+    <script>
+        let stakedBalance = 0;
+        let earnedPoop = 0;
+        let poopMarketValue = 0;
+        let stakingTimer = null;
+        let stakeLeverageVal = 1;
+        let selectedPool = "Hopium Vault";
+        let poolTokenName = "POOP";
+
+        function updateLeverage(val) {
+            stakeLeverageVal = parseInt(val);
+            document.getElementById('leverageDisplay').innerText = `${stakeLeverageVal}x`;
+        }
+
+        function stakeTokens() {
+            const amount = parseFloat(document.getElementById('stakeAmount').value);
+            if (isNaN(amount) || amount <= 0) {
+                showToast("Specify a valid staking balance allocation.", "error");
+                return;
+            }
+
+            // Read chosen pool parameters
+            const pools = document.getElementsByName('stakingPool');
+            let poolVal = "pool1";
+            for (let radio of pools) {
+                if (radio.checked) {
+                    poolVal = radio.value;
+                    break;
+                }
+            }
+
+            if (poolVal === "pool1") {
+                selectedPool = "Hopium Vault";
+                poolTokenName = "POOP";
+            } else if (poolVal === "pool2") {
+                selectedPool = "Developer's Lambo Fund";
+                poolTokenName = "GAS-LEAK";
+            } else {
+                selectedPool = "SafePlunge Tank";
+                poolTokenName = "WET-WIPES";
+            }
+
+            playSound('stake');
+            stakedBalance += amount;
+            document.getElementById('stakedLocked').innerText = `${stakedBalance.toLocaleString()} USDSHT`;
+            document.getElementById('stakedPoolType').innerText = selectedPool;
+            document.getElementById('stakedLeverageVal').innerText = `${stakeLeverageVal}x`;
+            document.getElementById('stakeAmount').value = '';
+            
+            showToast(`Staked ${amount.toLocaleString()} USDSHT into ${selectedPool} at ${stakeLeverageVal}x leverage.`, "success");
+            addStakingLog(`STAKE COMMITTED`, `User locked +${amount.toLocaleString()} USDSHT inside ${selectedPool} pool.`, "green");
+
+            if (!stakingTimer) {
+                stakingTimer = setInterval(() => {
+                    // Check for sudden high-leverage liquidation event
+                    const collapseProbability = (stakeLeverageVal - 1) * 0.0003;
+                    if (Math.random() < collapseProbability) {
+                        triggerPoolCollapse();
+                        return;
+                    }
+
+                    // Accruing reward logic
+                    const baseRate = poolVal === "pool1" ? 0.20 : poolVal === "pool2" ? 0.85 : 1.95;
+                    const earnedInc = (stakedBalance * baseRate * stakeLeverageVal * 0.05) + (Math.random() * 20);
+                    earnedPoop += earnedInc;
+                    document.getElementById('stakedYield').innerText = `${earnedPoop.toFixed(4)} ${poolTokenName}`;
+
+                    // Dilution value decay
+                    const baseDecay = poolVal === "pool1" ? 0.004 : poolVal === "pool2" ? 0.015 : 0.05;
+                    const dilutionVal = Math.min((earnedPoop * baseDecay * stakeLeverageVal), 99.9);
+                    document.getElementById('dilutionFactor').innerText = `${dilutionVal.toFixed(1)}%`;
+
+                    poopMarketValue = earnedPoop * (0.00002 / (1 + (earnedPoop * (baseDecay * stakeLeverageVal * 0.08))));
+                    document.getElementById('stakedValue').innerText = `$${poopMarketValue.toFixed(8)}`;
+
+                    if (Math.random() < 0.2) {
+                        addStakingLog(`POOL UPDATE`, `Staking inflation metrics fluctuating. Dilution increased.`, "yellow");
+                    }
+                }, 1000);
+            }
+        }
+
+        function triggerPoolCollapse() {
+            clearInterval(stakingTimer);
+            stakingTimer = null;
+            playSound('liquidated');
+            showToast("POOL COLLAPSE! Excessive leverage triggered an instant pool collapse!", "error");
+            addStakingLog(`POOL COLLAPSED`, `Liquidated total of ${stakedBalance.toLocaleString()} USDSHT due to excessive ${stakeLeverageVal}x leverage.`, "red");
+            
+            stakedBalance = 0;
+            earnedPoop = 0;
+            poopMarketValue = 0;
+
+            document.getElementById('stakedLocked').innerText = "0.00 USDSHT";
+            document.getElementById('stakedYield').innerText = "0.000000 POOP";
+            document.getElementById('stakedValue').innerText = "$0.00000000";
+            document.getElementById('dilutionFactor').innerText = "0.0%";
+        }
+
+        function claimStakingRewards() {
+            if (earnedPoop <= 0) {
+                showToast("No printable reward tokens available to harvest.", "error");
+                return;
+            }
+            playSound('alarm');
+            showToast(`HARVEST LOCKED: Exchanging ${poolTokenName} to USDT requires extra gas fees. Transfer rejected.`, "error");
+            addStakingLog(`CLAIM REJECTED`, `Yield harvest of ${earnedPoop.toFixed(2)} ${poolTokenName} returned gas failure.`, "red");
+        }
+
+        const stakingEventLog = document.getElementById('stakingEventLog');
+        function addStakingLog(event, desc, color) {
+            const timeStr = new Date().toLocaleTimeString();
+            let cClass = "text-blue-400";
+            if (color === "red") cClass = "text-rose-500";
+            if (color === "green") cClass = "text-green-400";
+            if (color === "yellow") cClass = "text-amber-400";
+
+            const logEntry = document.createElement('div');
+            logEntry.className = "border-b border-[#1A2232]/20 pb-1";
+            logEntry.innerHTML = `
+                <span class="text-gray-500">[${timeStr}]</span>
+                <span class="${cClass} font-bold">[${event}]</span>
+                <span class="text-gray-300 font-light text-[9px] block sm:inline-block sm:ml-1">${desc}</span>
+            `;
+            stakingEventLog.prepend(logEntry);
+        }
+    </script>
+
+    <!-- Lambo Goal Progression Logic -->
+    <script>
+        const lamboTiers = [
+            { cap: 0, name: "Hot Wheels Lambo", desc: "A sleek 1:64 scale plastic model. Runs great on coffee tables.", barPct: 10 },
+            { cap: 5000, name: "Cardboard Lambo Cutout", desc: "Life-sized poster. Looks awesome from at least 30 feet away.", barPct: 35 },
+            { cap: 25000, name: "2004 Civic with Lambo doors", desc: "Engine sounds like an angry lawnmower, but the doors go up!", barPct: 65 },
+            { cap: 100000, name: "Actual Lambo (Repossessed)", desc: "It actually runs, but the bank is looking for it. Drive fast!", barPct: 100 }
+        ];
+
+        function updateLamboTier() {
+            let activeTier = lamboTiers[0];
+            for (let i = lamboTiers.length - 1; i >= 0; i--) {
+                if (profitTracker >= lamboTiers[i].cap) {
+                    activeTier = lamboTiers[i];
+                    break;
+                }
+            }
+
+            document.getElementById('lamboTierDisplay').innerText = activeTier.name;
+            document.getElementById('lamboDescText').innerText = activeTier.desc;
+            document.getElementById('lamboProgressBar').style.width = `${activeTier.barPct}%`;
+        }
+    </script>
+
+    <!-- Initialization window load -->
+    <script>
+        window.onload = function() {
+            initCanvas();
+            generateOrderBook();
+            startLoggingInterval();
+            updateWalletDisplay();
+            updateLamboTier();
         }
     </script>
 </body>
