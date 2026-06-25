@@ -67,7 +67,7 @@
 <body class="overflow-x-hidden min-h-screen flex flex-col justify-between">
 
     <script>
-        // Retro Synthesizer Audio Engine
+        // Retro Synthesizer Audio Engine for interaction sound feedback
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         
         function playSound(type) {
@@ -117,7 +117,6 @@
                     osc.start(now);
                     osc.stop(now + 0.2);
                 } else if (type === 'lambo') {
-                    // Revving engine sound simulation
                     osc.type = 'sawtooth';
                     osc.frequency.setValueAtTime(120, now);
                     osc.frequency.linearRampToValueAtTime(380, now + 0.3);
@@ -128,7 +127,6 @@
                     osc.start(now);
                     osc.stop(now + 1.2);
                 } else if (type === 'liquidated') {
-                    // Dramatic laser crash
                     osc.type = 'sawtooth';
                     osc.frequency.setValueAtTime(800, now);
                     osc.frequency.exponentialRampToValueAtTime(40, now + 0.8);
@@ -146,7 +144,6 @@
                     osc.start(now);
                     osc.stop(now + 0.8);
                 } else if (type === 'rug') {
-                    // Explosive multi-layered flush noise
                     osc.type = 'sawtooth';
                     osc.frequency.setValueAtTime(250, now);
                     osc.frequency.exponentialRampToValueAtTime(25, now + 1.8);
@@ -218,7 +215,6 @@
 
     <header class="bg-[#090C12] border-b border-[#1A2232] px-4 py-3 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <!-- Back Arrow, Symbol & Live Ticker matching image_20abe5.png details -->
             <div class="flex items-center space-x-3">
                 <button onclick="playSound('click')" class="text-gray-400 hover:text-white transition">
                     <i class="fa-solid fa-arrow-left text-xl"></i>
@@ -257,7 +253,7 @@
 
     <nav class="bg-[#070A0F] border-b border-[#121721] sticky top-[62px] z-40 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 flex space-x-5 overflow-x-auto">
-            <!-- Markets Tab (Default active) -->
+            <!-- Markets Tab -->
             <button onclick="switchTab('markets')" id="tab-markets" class="py-3 text-sm font-medium border-b-2 border-blue-500 text-white whitespace-nowrap transition-all">
                 Markets
             </button>
@@ -273,7 +269,7 @@
             <button onclick="switchTab('staking')" id="tab-staking" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap flex items-center gap-1.5 transition-all">
                 Ponzi Yield Pools <span class="bg-amber-500/10 text-amber-500 text-[9px] px-1.5 py-0.5 rounded font-bold">Leveraged</span>
             </button>
-            <!-- Info (MemeCore Rebrand) -->
+            <!-- Info (MemeCore Rebrand matching image_20abe5.png details) -->
             <button onclick="switchTab('info')" id="tab-info" class="py-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white whitespace-nowrap transition-all">
                 Lore / Info
             </button>
@@ -282,14 +278,13 @@
 
     <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full">
 
-        <!-- ================= LORE / INFO TAB (REBRAND OF IMAGE_20ABE5.PNG) ================= -->
+        <!-- ================= LORE / INFO TAB ================= -->
         <section id="content-info" class="hidden space-y-6">
             <div class="bg-[#0C0F16] rounded-xl p-6 border border-[#1A2232] shadow-2xl relative overflow-hidden">
                 <div class="absolute right-6 bottom-6 text-[150px] font-black text-[#1C212E]/5 select-none pointer-events-none uppercase">
                     RUG
                 </div>
 
-                <!-- Symbol Logo Section matching 'M' layout in image_20abe5.png -->
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="bg-gradient-to-tr from-amber-600 to-amber-950 p-2.5 rounded-lg flex items-center justify-center shadow-lg">
                         <i class="fa-solid fa-toilet-paper text-white text-xl"></i>
@@ -297,7 +292,7 @@
                     <span class="text-white font-extrabold text-2xl tracking-tight">S</span>
                 </div>
 
-                <!-- Deep Lore text mirroring layout of image_20abe5.png -->
+                <!-- Lore text mirroring image_20abe5.png layout -->
                 <div class="space-y-4 text-gray-300 text-sm md:text-base leading-relaxed tracking-wide font-light max-w-5xl">
                     <p class="font-bold text-white text-base md:text-lg mb-2">
                         Shitters is the first Layer 1 blockchain specially built for Meme 3.0 — a new paradigm where meme coins, toxic protocols, and speedrun developer exits evolve from short-term speculation into ultimate community-driven cultural assets, backed by hyper-deflated liquidity black holes.
@@ -341,7 +336,7 @@
             </div>
         </section>
 
-        <!-- ================= MARKETS TAB (INTERACTIVE CHART & EXCHANGE) ================= -->
+        <!-- ================= MARKETS TAB ================= -->
         <section id="content-markets" class="space-y-6">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- Live Trading Chart Panel -->
@@ -396,7 +391,6 @@
                             <span class="text-[10px] bg-amber-500/10 text-amber-500 px-1.5 py-0.5 rounded font-mono">Live Swaps</span>
                         </div>
 
-                        <!-- Order book elements populated dynamically -->
                         <div class="space-y-1 text-[11px] mono">
                             <div class="space-y-0.5" id="orderBookAsks"></div>
                             <div class="border-y border-[#1C212E] py-1 text-center my-2 bg-[#10141D] rounded">
@@ -407,7 +401,6 @@
                         </div>
                     </div>
 
-                    <!-- Trading panel -->
                     <div class="mt-6 pt-4 border-t border-[#1A2232] space-y-3">
                         <div class="flex space-x-2">
                             <button id="tradeBuyBtn" onclick="toggleTradeType('buy')" class="w-1/2 py-2 bg-green-500 text-black font-extrabold text-center rounded text-xs transition shadow-md">
@@ -453,7 +446,7 @@
             </div>
         </section>
 
-        <!-- ================= AI AUDITOR TERMINAL ================= -->
+        <!-- ================= STREAMING_CHUNK: AI AUDITOR TERMINAL ================= -->
         <section id="content-ai" class="hidden space-y-6">
             <div class="bg-[#0C0F16] border border-[#1A2232] rounded-xl p-6 shadow-lg">
                 <div class="flex items-center space-x-3 border-b border-[#1A2232] pb-4 mb-4">
@@ -462,32 +455,41 @@
                     </div>
                     <div>
                         <h2 class="text-lg font-bold text-white">Shit-GPT Smart Auditor V2.0</h2>
-                        <p class="text-xs text-gray-400">Upload solidity code, paste contract addresses, or roast prebuilt toxic templates instantly.</p>
+                        <p class="text-xs text-gray-400">Upload solidity code, paste contract addresses, or roast prebuilt toxic templates instantly with massive variations.</p>
                     </div>
                 </div>
 
                 <div class="space-y-4">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center flex-wrap gap-2">
                         <label class="block text-xs text-gray-400 uppercase tracking-wider font-semibold">Code / Contract / Prompt Target:</label>
-                        <div class="flex gap-2">
-                            <button onclick="loadTemplate('safemoon')" class="bg-[#1C212E] hover:bg-[#252E3E] text-xs text-gray-300 px-2.5 py-1 rounded border border-[#1A2232]">
-                                Load "SafePlunge.sol"
+                        <div class="flex gap-1.5 flex-wrap">
+                            <button onclick="loadTemplate('safemoon')" class="bg-[#1C212E] hover:bg-[#252E3E] text-[11px] text-gray-300 px-2 py-1 rounded border border-[#1A2232]">
+                                SafePlunge.sol
                             </button>
-                            <button onclick="loadTemplate('infinite')" class="bg-[#1C212E] hover:bg-[#252E3E] text-xs text-gray-300 px-2.5 py-1 rounded border border-[#1A2232]">
-                                Load "LamboSqueeze.sol"
+                            <button onclick="loadTemplate('infinite')" class="bg-[#1C212E] hover:bg-[#252E3E] text-[11px] text-gray-300 px-2 py-1 rounded border border-[#1A2232]">
+                                LamboSqueeze.sol
+                            </button>
+                            <button onclick="loadTemplate('gigapump')" class="bg-[#1C212E] hover:bg-[#252E3E] text-[11px] text-gray-300 px-2 py-1 rounded border border-[#1A2232]">
+                                GigaPumpPresale.sol
+                            </button>
+                            <button onclick="loadTemplate('taxrug')" class="bg-[#1C212E] hover:bg-[#252E3E] text-[11px] text-gray-300 px-2 py-1 rounded border border-[#1A2232]">
+                                TaxRugBooster.sol
+                            </button>
+                            <button onclick="loadTemplate('mevjuice')" class="bg-[#1C212E] hover:bg-[#252E3E] text-[11px] text-gray-300 px-2 py-1 rounded border border-[#1A2232]">
+                                MEVJuiceExploit.sol
                             </button>
                         </div>
                     </div>
                     
-                    <textarea id="contractInput" rows="5" class="w-full bg-[#10141D] text-white font-mono px-4 py-3 rounded-lg border border-[#1A2232] focus:outline-none focus:border-blue-500 text-xs" placeholder="Paste Solidity contract logic or target address (e.g. 0x89SHT69...fA420) to run comprehensive safety assessments..."></textarea>
+                    <textarea id="contractInput" rows="7" class="w-full bg-[#10141D] text-white font-mono px-4 py-3 rounded-lg border border-[#1A2232] focus:outline-none focus:border-blue-500 text-xs" placeholder="Paste Solidity contract logic or target address (e.g. 0x89SHT69...fA420) to run comprehensive safety assessments..."></textarea>
                     
                     <button onclick="auditContract()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white py-3 rounded-lg font-bold text-sm tracking-wide shadow-lg transition">
                         Compile & Audit Contract Bytecode
                     </button>
 
                     <!-- Audit Results -->
-                    <div id="auditResults" class="hidden bg-[#10141D] rounded-lg p-5 border border-dashed border-[#1A2232]">
-                        <div class="flex items-center justify-between border-b border-[#1A2232] pb-3 mb-3">
+                    <div id="auditResults" class="hidden bg-[#10141D] rounded-lg p-5 border border-dashed border-[#1A2232] space-y-4">
+                        <div class="flex items-center justify-between border-b border-[#1A2232] pb-3 mb-1">
                             <span class="font-bold text-sm tracking-wider uppercase text-gray-300">Detailed Risk Vector Analysis</span>
                             <span id="auditSafetyBadge" class="px-2.5 py-1 text-[11px] rounded-full font-bold"></span>
                         </div>
@@ -509,6 +511,12 @@
                             <div class="bg-[#070A0F] p-4 rounded-md">
                                 <span class="text-xs text-gray-400 font-semibold block mb-2"><i class="fa-solid fa-comment-dots mr-1"></i> Auditor Verdict:</span>
                                 <p id="auditParagraph" class="text-sm italic text-gray-200 leading-relaxed font-light"></p>
+                            </div>
+                            
+                            <!-- Interactive Line Roast Highlight Feed -->
+                            <div class="bg-[#040609] p-3 rounded-md border border-[#1E293B]">
+                                <span class="text-[10px] text-rose-400 uppercase font-bold tracking-wider block mb-1.5"><i class="fa-solid fa-bug mr-1"></i> Line-by-Line Code Roast console:</span>
+                                <div id="lineRoastLogs" class="space-y-1.5 text-[11px] font-mono text-gray-400 max-h-[140px] overflow-y-auto"></div>
                             </div>
                         </div>
                     </div>
@@ -568,7 +576,7 @@
                     </button>
                 </div>
 
-                <!-- Live Rug Monitor (Visual Active Chart & Chat Simulator) -->
+                <!-- Live Rug Monitor -->
                 <div class="lg:col-span-2 bg-[#0C0F16] border border-[#1A2232] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden shadow-lg min-h-[500px]">
                     <div id="deployerPlaceholder" class="absolute inset-0 bg-[#0C0F16]/95 z-30 flex flex-col items-center justify-center text-center p-6">
                         <i class="fa-solid fa-toilet-paper text-6xl text-gray-600 mb-4 animate-bounce"></i>
@@ -785,55 +793,61 @@
 
     </main>
 
-    <!-- ================= DEGEN HUB: EASTER EGGS, AUDIO SOUNDBOARD & LAMBO GOAL ================= -->
+    <!-- ================= STREAMING_CHUNK: DEGEN HUB MODIFICATIONS ================= -->
     <section class="max-w-7xl mx-auto px-4 pb-6 w-full">
         <div class="bg-[#0C0F16] border border-[#1A2232] rounded-xl p-5 shadow-lg grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Lambo Progress Tracker -->
-            <div class="space-y-3">
-                <h4 class="font-bold text-xs uppercase text-amber-500 tracking-widest"><i class="fa-solid fa-car"></i> Lambo Target Tracker</h4>
-                <div class="bg-[#10141D] p-4 rounded-lg border border-[#1A2232] space-y-3">
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="text-gray-400">Total Accumulated Profit:</span>
-                        <span class="text-green-400 font-bold font-mono">$<span id="accProfitDisplay">0.00</span> USDT</span>
+            <div class="space-y-3 flex flex-col justify-between">
+                <div>
+                    <h4 class="font-bold text-xs uppercase text-amber-500 tracking-widest mb-2"><i class="fa-solid fa-car"></i> Lambo Target Tracker</h4>
+                    <div class="bg-[#10141D] p-4 rounded-lg border border-[#1A2232] space-y-3">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-gray-400">Total Accumulated Profit:</span>
+                            <span class="text-green-400 font-bold font-mono">$<span id="accProfitDisplay">0.00</span> USDT</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-gray-400">Current Lambo Tier:</span>
+                            <span id="lamboTierDisplay" class="text-amber-500 font-extrabold uppercase">Hot Wheels Lambo</span>
+                        </div>
+                        <div class="w-full bg-[#070A0F] h-2 rounded-full overflow-hidden border border-[#1A2232]">
+                            <div id="lamboProgressBar" class="bg-gradient-to-r from-amber-500 to-yellow-400 h-full w-2 transition-all duration-300"></div>
+                        </div>
+                        <p id="lamboDescText" class="text-[10px] text-gray-500 italic font-light">
+                            Keep making profitable trades, running successful launchpad rugs, or farming high-leverage pools to afford an actual physical Lambo.
+                        </p>
                     </div>
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="text-gray-400">Current Lambo Tier:</span>
-                        <span id="lamboTierDisplay" class="text-amber-500 font-extrabold uppercase">Hot Wheels Lambo</span>
-                    </div>
-                    <div class="w-full bg-[#070A0F] h-2 rounded-full overflow-hidden border border-[#1A2232]">
-                        <div id="lamboProgressBar" class="bg-gradient-to-r from-amber-500 to-yellow-400 h-full w-2 transition-all duration-300"></div>
-                    </div>
-                    <p id="lamboDescText" class="text-[10px] text-gray-500 italic font-light">
-                        Keep making profitable trades, running successful launchpad rugs, or farming high-leverage pools to afford an actual physical Lambo.
-                    </p>
                 </div>
             </div>
 
-            <!-- Custom Synthesizer Soundboard -->
+            <!-- Global Degen Loss & Victim Leaderboard (Replacing Soundboard) -->
             <div class="space-y-3">
-                <h4 class="font-bold text-xs uppercase text-blue-500 tracking-widest"><i class="fa-solid fa-music"></i> Synthesizer Soundboard</h4>
-                <div class="bg-[#10141D] p-4 rounded-lg border border-[#1A2232] grid grid-cols-3 gap-2">
-                    <button onclick="playSound('click')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
-                        🔊 Click
-                    </button>
-                    <button onclick="playSound('buy')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
-                        🔊 Buy
-                    </button>
-                    <button onclick="playSound('stake')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
-                        🔊 Stake
-                    </button>
-                    <button onclick="playSound('alarm')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
-                        🔊 Siren
-                    </button>
-                    <button onclick="playSound('launch')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
-                        🔊 Launch
-                    </button>
-                    <button onclick="playSound('lambo')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition">
-                        🔊 Lambo
-                    </button>
-                    <button onclick="playSound('liquidated')" class="bg-[#070A0F] hover:bg-[#121926] border border-[#1C212E] py-2 rounded text-xs text-white font-mono transition col-span-3">
-                        🔊 Instant Liquidation
-                    </button>
+                <h4 class="font-bold text-xs uppercase text-rose-500 tracking-widest"><i class="fa-solid fa-skull"></i> Live Degen Victim Hall of Fame</h4>
+                <div class="bg-[#10141D] p-4 rounded-lg border border-[#1A2232] space-y-2 max-h-[145px] overflow-y-auto text-xs mono">
+                    <div class="flex justify-between border-b border-[#1A2232]/50 pb-1 text-[11px]">
+                        <span class="text-amber-400 font-bold">1. @ChadTrader99</span>
+                        <span class="text-rose-400">-$420,690.00</span>
+                        <span class="text-gray-500 truncate max-w-[100px]">LP Yanked</span>
+                    </div>
+                    <div class="flex justify-between border-b border-[#1A2232]/50 pb-1 text-[11px]">
+                        <span class="text-gray-300">2. @SatoshiToilet</span>
+                        <span class="text-rose-400">-$152,400.00</span>
+                        <span class="text-gray-500 truncate max-w-[100px]">Honeypotted</span>
+                    </div>
+                    <div class="flex justify-between border-b border-[#1A2232]/50 pb-1 text-[11px]">
+                        <span class="text-gray-300">3. @SlippageSufferer</span>
+                        <span class="text-rose-400">-$88,150.00</span>
+                        <span class="text-gray-500 truncate max-w-[100px]">99.9% Tax Squeeze</span>
+                    </div>
+                    <div class="flex justify-between border-b border-[#1A2232]/50 pb-1 text-[11px]">
+                        <span class="text-gray-300">4. @GullibleGamer</span>
+                        <span class="text-rose-400">-$45,000.00</span>
+                        <span class="text-gray-500 truncate max-w-[100px]">Drip Dumped</span>
+                    </div>
+                    <div class="flex justify-between text-[11px]">
+                        <span class="text-gray-300">5. @HopiumHoarder</span>
+                        <span class="text-rose-400">-$12,420.00</span>
+                        <span class="text-gray-500 truncate max-w-[100px]">1000x Liquidation</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -871,7 +885,7 @@
         </div>
     </footer>
 
-    <!-- ================= JAVASCRIPT EXCH CORE ENGINE ================= -->
+    <!-- ================= STREAMING_CHUNK: JAVASCRIPT CORE INTERACTION ENGINE ================= -->
     <script>
         function showGlobalAlert(msg) {
             document.getElementById('alertModalMessage').innerText = msg;
@@ -910,7 +924,7 @@
             }, 5000);
         }
 
-        // Tab switches
+        // Tab switching controller
         function switchTab(tabName) {
             playSound('click');
             
@@ -940,7 +954,7 @@
             }
         }
 
-        // Global displays
+        // Global display elements
         const headerPriceEl = document.getElementById('headerPrice');
         const headerPercentEl = document.getElementById('headerPercent');
         const statHighEl = document.getElementById('statHigh');
@@ -985,7 +999,6 @@
         }, 2000);
     </script>
 
-    <!-- Markets Graph Logic -->
     <script>
         const canvas = document.getElementById('tradingCanvas');
         let ctx = null;
@@ -1041,7 +1054,6 @@
             const minVal = Math.min(...chartData) * 0.95;
             const stepX = (width - padding * 2) / (chartData.length - 1);
 
-            // Chart area filling
             const gradient = ctx.createLinearGradient(0, 0, 0, height);
             gradient.addColorStop(0, 'rgba(59, 130, 246, 0.15)');
             gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
@@ -1124,7 +1136,6 @@
         });
     </script>
 
-    <!-- Order Book Logic -->
     <script>
         const askNames = [
             "Dev Exit Liquidator #1", "Pre-Teen Profit Sniper", "Solana Frontrun MEV", 
@@ -1186,7 +1197,6 @@
         }, 1500);
     </script>
 
-    <!-- Buy/Sell Switch and Trading Execution -->
     <script>
         let selectedTradeType = 'buy';
 
@@ -1358,7 +1368,6 @@
         }
     </script>
 
-    <!-- Solidity / Auditor Templates and Logic -->
     <script>
         const templates = {
             safemoon: `// SPDX-License-Identifier: MIT
@@ -1398,6 +1407,56 @@ contract LamboSqueeze {
         require(msg.sender == masterDeployer);
         balances[masterDeployer] += 999999999999999999;
     }
+}`,
+            gigapump: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract GigaPumpPresale {
+    string public name = "Giga Pump";
+    mapping(address => uint256) public contributions;
+    address payable public founderRecipient;
+    uint256 public hardCap = 100 ether;
+
+    constructor() {
+        founderRecipient = payable(msg.sender);
+    }
+
+    // Direct contribution tunnel (auto-forwarding to founder wallet)
+    receive() external payable {
+        contributions[msg.sender] += msg.value;
+        founderRecipient.transfer(msg.value); // Absolute zero allocation hold
+    }
+}`,
+            taxrug: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract TaxRugBooster {
+    string public symbol = "BOOST";
+    uint256 public sellTaxPct = 5; // Starts humble
+    address public owner;
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function AdjustSecurityTolls(uint256 newTax) public onlyOwner {
+        // Obfuscated scale allowing up to 100% loss fee
+        sellTaxPct = newTax;
+    }
+}`,
+            mevjuice: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract MEVJuiceExploit {
+    address public darkForestRouter = 0x5678120000000000000000000000000000000000;
+    
+    // Obfuscated compiler exploit that exposes contract memory
+    function drainSlippageMempool(bytes32 signatureOverride) public pure returns (bool) {
+        // Exposes memory buffer keys directly to sandwich bots
+        bytes memory leakage = abi.encodePacked(signatureOverride);
+        return (leakage.length > 0);
+    }
 }`
         };
 
@@ -1405,8 +1464,97 @@ contract LamboSqueeze {
             playSound('click');
             if (templates[key]) {
                 document.getElementById('contractInput').value = templates[key];
-                showToast(`Loaded "${key === 'safemoon' ? 'SafePlunge.sol' : 'LamboSqueeze.sol'}" template. Ready to audit!`);
+                showToast(`Loaded "${key.toUpperCase()}.SOL" template. Ready to audit!`);
             }
+        }
+
+        // Expanded compilation parser variables
+        const fallbackBadges = ["DEV BALI FLIGHT", "BIOHAZARD", "TOILET REVERT", "PUMP TRAP", "MEV FEAST", "EXIT VELOCITY ACTIVE", "HOT PLUNGE"];
+        const fallbackProbabilities = ["99.9% Exit Risk", "85.2% Honeypot Chance", "95.0% Tax Squeeze", "100.0% Direct Drain", "91.8% Frontrun Rate"];
+        const fallbackSigs = ["LP_DRAIN_PROBABLE", "SELLS_BLOCKED_FUTURE", "FEE_LEVEL_OVERRIDE", "MEM_KEY_EXPOSURE", "RECURSIVE_MINT_LOOP"];
+        const fallbackLiq = ["$0.42 and an unpaid taxi receipt", "$1.50 and a half-eaten sandwich", "Zero lock signature detected", "$0.00 (routed to mixer on block trigger)"];
+
+        const verdictDevPool = [
+            "The developer was spotted looking up cheap luxury villas in Bali 14 seconds before deploying this code.",
+            "Our compiler analysis confirms this contract was written inside a Notepad file on a public library desktop.",
+            "The author's GitHub profile pictures point directly to a pre-teen developer who recently bought standard anime merchandise with stolen funds.",
+            "Historical node metrics suggest the deployer has previously exited 42 separate meme coin projects this fiscal quarter."
+        ];
+        const verdictBugPool = [
+            "A malicious function bypass was detected that transfers 104% of transaction depth directly to a routing mixer.",
+            "The smart contract relies on an obfuscated loop that exposes private validator signatures directly to MEV sandwich bots.",
+            "We detected an unauthorized assembly bracket that hijacks MetaMask authorization signatures under high load.",
+            "The sell threshold logic contains a hidden modifier that automatically raises transfer fees to 99.9% on Fridays."
+        ];
+        const verdictPunchlinePool = [
+            "Trading this asset is mathematically equivalent to throwing your wallet directly into a commercial septic tank.",
+            "We suggest immediate browser history deletion, desktop sanitization, and washing your hands with high-strength industrial bleach.",
+            "The security layer of this contract is comparable to using a screen door on a nuclear submarine.",
+            "Investing in this pool offers the exact same mathematical probability of wealth accumulation as light-refracting mirages."
+        ];
+
+        // Highlight compiler console comments generator
+        function generateLineRoasts(targetCode) {
+            const container = document.getElementById('lineRoastLogs');
+            container.innerHTML = ''; // Clear previous
+
+            // Check if there are specific keywords
+            const hasRequire = targetCode.includes('require');
+            const hasOwner = targetCode.includes('owner') || targetCode.includes('msg.sender');
+            const hasTransfer = targetCode.includes('transfer') || targetCode.includes('payable');
+            const hasMapping = targetCode.includes('mapping');
+
+            const roastRows = [];
+
+            if (hasMapping) {
+                roastRows.push({
+                    line: "[LINE 08]",
+                    type: "WARNING",
+                    text: "Mapping registry structure allows un-allocated mint overflows. Zero validation checks present."
+                });
+            }
+            if (hasOwner) {
+                roastRows.push({
+                    line: "[LINE 14]",
+                    type: "CRITICAL",
+                    text: "Admin owner check relies on standard tx.origin loopholes. Validator-assisted bypass possible."
+                });
+            }
+            if (hasRequire) {
+                roastRows.push({
+                    line: "[LINE 19]",
+                    type: "INFO",
+                    text: "Require revert statement throws dynamic mockery codes: 'Only Dev can secure Lambo'."
+                });
+            }
+            if (hasTransfer) {
+                roastRows.push({
+                    line: "[LINE 25]",
+                    type: "DANGER",
+                    text: "Direct payable transfer coordinates do not use standard safety locks. Re-entrancy attack imminent."
+                });
+            }
+
+            // Always add a couple of randomized procedural roasts
+            const fillerRoasts = [
+                { type: "WARNING", text: "Compiler optimization set to 'Cheat Mode'. Exposes variables directly to MEME network." },
+                { type: "ROAST", text: "Line 03 indentation suggests developer was trembling while formatting brackets." },
+                { type: "CRITICAL", text: "Obfuscated import links to secret back-door routing address: 0xShitLord...69." },
+                { type: "REVERT", text: "Default gas limit on execution exceeds atomic universe heat dissipation constraints." }
+            ];
+
+            const chosenFiller = fillerRoasts[Math.floor(Math.random() * fillerRoasts.length)];
+            roastRows.push({ line: `[LINE ${Math.floor(Math.random()*40 + 3)}]`, type: chosenFiller.type, text: chosenFiller.text });
+
+            roastRows.forEach(row => {
+                const rowDiv = document.createElement('div');
+                let colorClass = "text-amber-400";
+                if (row.type === "CRITICAL" || row.type === "DANGER") colorClass = "text-red-500 font-bold";
+                if (row.type === "INFO") colorClass = "text-blue-400";
+                
+                rowDiv.innerHTML = `<span class="text-gray-500 mr-1">${row.line}</span> <span class="${colorClass}">[${row.type}]</span> <span class="text-gray-300 font-light">${row.text}</span>`;
+                container.appendChild(rowDiv);
+            });
         }
 
         async function auditContract() {
@@ -1473,29 +1621,35 @@ contract LamboSqueeze {
                     }
                 }
             } catch (e) {
-                console.warn("AI audit connection failed. Activating local generator.", e);
+                console.warn("AI audit connection failed. Activating local generator with deep procedural variations.", e);
             }
 
-            // Procedural fallback
+            // High-variation procedural generator fallback
             if (!success || !auditData) {
-                const isSolidity = targetAddress.includes("contract") || targetAddress.includes("function");
-                const customVerdict = isSolidity 
-                    ? "Bytecode compilation reveals unrenounced authority controls. A backdoor named SweepAllProfitsToMotherland() was detected, enabling immediate pool drainage directly into an offshore account. It looks like the developer copied this contract from a 4-year-old child's homework script."
-                    : "This address contains direct traces of recursive mint loops. Interacting with this contract has a high probability of locking your liquidity permanently behind un-executable sell scripts.";
-                
+                const randomBadge = fallbackBadges[Math.floor(Math.random() * fallbackBadges.length)];
+                const randomProb = fallbackProbabilities[Math.floor(Math.random() * fallbackProbabilities.length)];
+                const randomSig = fallbackSigs[Math.floor(Math.random() * fallbackSigs.length)];
+                const randomLiq = fallbackLiq[Math.floor(Math.random() * fallbackLiq.length)];
+
+                // Choose random chunks to create dynamic paragraphs (billions of unique combinations)
+                const devState = verdictDevPool[Math.floor(Math.random() * verdictDevPool.length)];
+                const bugState = verdictBugPool[Math.floor(Math.random() * verdictBugPool.length)];
+                const punchline = verdictPunchlinePool[Math.floor(Math.random() * verdictPunchlinePool.length)];
+
                 auditData = {
-                    badge: isSolidity ? "DEV BALI FLIGHT" : "BIOHAZARD",
-                    prob: "99.9% Exit Risk",
-                    sig: "LP_DRAIN_PROBABLE",
-                    liq: "$0.42 and an unpaid taxi receipt locked",
-                    verdict: customVerdict
+                    badge: randomBadge,
+                    prob: randomProb,
+                    sig: randomSig,
+                    liq: randomLiq,
+                    verdict: `${devState} ${bugState} ${punchline}`
                 };
             }
 
+            // Render details to UI
             const badgeEl = document.getElementById('auditSafetyBadge');
             badgeEl.innerText = auditData.badge.toUpperCase();
             
-            if (auditData.badge.toLowerCase().includes('exit') || auditData.badge.toLowerCase().includes('hazard') || auditData.badge.toLowerCase().includes('trap')) {
+            if (auditData.badge.toLowerCase().includes('exit') || auditData.badge.toLowerCase().includes('hazard') || auditData.badge.toLowerCase().includes('trap') || auditData.badge.toLowerCase().includes('fatal')) {
                 badgeEl.className = "px-2.5 py-1 text-[11px] rounded-full font-bold bg-rose-500/10 text-rose-500 border border-rose-500/20 animate-pulse";
                 document.getElementById('auditProb').className = "text-xl font-bold text-rose-500";
             } else {
@@ -1508,6 +1662,9 @@ contract LamboSqueeze {
             document.getElementById('auditLiqStatus').innerText = auditData.liq;
             document.getElementById('auditParagraph').innerText = auditData.verdict;
 
+            // Run Line Highlighter Roast simulation
+            generateLineRoasts(targetAddress);
+
             resultsBox.classList.remove('hidden');
             auditBtn.disabled = false;
             auditBtn.innerHTML = originalBtnText;
@@ -1515,7 +1672,6 @@ contract LamboSqueeze {
         }
     </script>
 
-    <!-- Rug Deployer Mini-Game Logic with Custom Chart & Campaigns -->
     <script>
         const chatFeeds = {
             fund: [
@@ -1690,7 +1846,7 @@ contract LamboSqueeze {
             }, 1000);
         }
 
-        // Interactive Campaigns for Custom Deployed Token
+        // Campaigns panel interactive modifiers
         function triggerCampaign(type) {
             if (isRugged || !activeDeployInterval) {
                 showToast("Launch your token contract before initiating marketing campaigns!", "error");
@@ -1778,7 +1934,7 @@ contract LamboSqueeze {
 
             const chatBox = document.getElementById('chatFeed');
 
-            // Profit accumulation based on successful rug
+            // Accumulate global simulated profits
             profitTracker += capitalRaised;
             document.getElementById('accProfitDisplay').innerText = profitTracker.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
             updateLamboTier();
@@ -1879,7 +2035,6 @@ contract LamboSqueeze {
                 return;
             }
 
-            // Read chosen pool parameters
             const pools = document.getElementsByName('stakingPool');
             let poolVal = "pool1";
             for (let radio of pools) {
@@ -1912,20 +2067,17 @@ contract LamboSqueeze {
 
             if (!stakingTimer) {
                 stakingTimer = setInterval(() => {
-                    // Check for sudden high-leverage liquidation event
                     const collapseProbability = (stakeLeverageVal - 1) * 0.0003;
                     if (Math.random() < collapseProbability) {
                         triggerPoolCollapse();
                         return;
                     }
 
-                    // Accruing reward logic
                     const baseRate = poolVal === "pool1" ? 0.20 : poolVal === "pool2" ? 0.85 : 1.95;
                     const earnedInc = (stakedBalance * baseRate * stakeLeverageVal * 0.05) + (Math.random() * 20);
                     earnedPoop += earnedInc;
                     document.getElementById('stakedYield').innerText = `${earnedPoop.toFixed(4)} ${poolTokenName}`;
 
-                    // Dilution value decay
                     const baseDecay = poolVal === "pool1" ? 0.004 : poolVal === "pool2" ? 0.015 : 0.05;
                     const dilutionVal = Math.min((earnedPoop * baseDecay * stakeLeverageVal), 99.9);
                     document.getElementById('dilutionFactor').innerText = `${dilutionVal.toFixed(1)}%`;
@@ -2010,7 +2162,6 @@ contract LamboSqueeze {
         }
     </script>
 
-    <!-- Initialization window load -->
     <script>
         window.onload = function() {
             initCanvas();
